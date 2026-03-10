@@ -6,7 +6,7 @@
 <title>Alzy Family</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -14,7 +14,6 @@
 
 <!-- LOADER -->
 <div id="loader">
-  <div class="loader-bg"></div>
   <div class="loader-content">
     <div class="loader-logo-wrap">
       <img id="loader-logo" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773105158/alzy-fams_qu7ewy.png" alt="">
@@ -30,17 +29,15 @@
     <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
     <div class="loader-pct" id="loaderPct">0%</div>
   </div>
-  <div class="loader-slice loader-slice-l"></div>
-  <div class="loader-slice loader-slice-r"></div>
 </div>
-
-<!-- WEBGL -->
-<canvas id="webgl-bg"></canvas>
-<div id="noise"></div>
 
 <!-- CURSOR -->
 <div id="cur-dot"></div>
 <div id="cur-ring"></div>
+
+<!-- CANVAS BG -->
+<canvas id="webgl-bg"></canvas>
+<div id="noise"></div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -114,7 +111,7 @@
       </div>
     </div>
   </div>
-  <div class="wave-divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--c-ocean2)"/></svg></div>
+  <div class="wave-divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--c-sand2)"/></svg></div>
 </section>
 
 <!-- CERITA -->
@@ -126,17 +123,17 @@
         <img class="ci-b" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg" alt="">
         <div class="ci-corner tl"></div>
         <div class="ci-corner br"></div>
-        <div class="ci-pill">Since 2020 🌊</div>
+        <div class="ci-pill">Since 2020 🌸</div>
       </div>
     </div>
     <div class="cerita-text">
-      <div class="reveal section-eyebrow" style="color:var(--c-cyan)">
-        <span class="eyebrow-line" style="background:var(--c-cyan)"></span>Cerita Kami
+      <div class="reveal section-eyebrow" style="color:var(--c-rose)">
+        <span class="eyebrow-line" style="background:var(--c-rose)"></span>Cerita Kami
       </div>
       <h2 class="section-h2">
         <span class="word-line"><span class="reveal-word">Dimulai dari</span></span>
         <span class="word-line"><span class="reveal-word">sebuah</span></span>
-        <span class="word-line"><span class="reveal-word" style="color:var(--c-cyan)">ikatan suci</span></span>
+        <span class="word-line"><span class="reveal-word" style="color:var(--c-rose)">ikatan suci</span></span>
       </h2>
       <p class="reveal section-p">Pada 6 September 2020, Muhamad Irpan Yasin & Anisa Fitriani memulai babak baru kehidupan. Kini kami berempat — dengan Aleena dan Zyan yang mengisi setiap hari dengan tawa dan cinta.</p>
       <div class="reveal values-grid">
@@ -147,111 +144,111 @@
       </div>
     </div>
   </div>
-  <div class="wave-divider wave-flip"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--c-ocean1)"/></svg></div>
+  <div class="wave-divider wave-flip"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--c-sand1)"/></svg></div>
 </section>
 
 <!-- ANGGOTA -->
 <section class="sec" id="s2">
   <div class="sec-inner vertical">
     <div class="slide-header">
-      <div class="reveal section-eyebrow" style="color:var(--c-foam)">
-        <span class="eyebrow-line" style="background:var(--c-foam)"></span>Anggota Keluarga
+      <div class="reveal section-eyebrow" style="color:var(--c-amber)">
+        <span class="eyebrow-line" style="background:var(--c-amber)"></span>Anggota Keluarga
       </div>
       <h2 class="section-h2">
-        <span class="word-line"><span class="reveal-word">Para <span style="color:var(--c-foam)">Pahlawan Super</span> Kami</span></span>
+        <span class="word-line"><span class="reveal-word">Para <span style="color:var(--c-amber)">Pahlawan Super</span> Kami</span></span>
       </h2>
     </div>
     <div class="members-grid">
       <div class="member-card reveal" data-delay="0">
         <div class="mc-img"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104794/irvan2_nx48yc.jpg" alt="Ayah"><div class="mc-overlay"></div></div>
         <div class="mc-body">
-          <div class="mc-role" style="color:var(--c-cyan)">Ayah · The Protector</div>
+          <div class="mc-role" style="color:var(--c-teal)">Ayah · The Protector</div>
           <div class="mc-name">Muhamad Irpan Yasin</div>
           <div class="mc-quote">"Kepala keluarga yang kuat dan penuh kasih sayang."</div>
           <div class="mc-tags">
-            <span class="mtag" style="background:rgba(0,210,200,.12);color:var(--c-cyan)">#Pemimpin</span>
-            <span class="mtag" style="background:rgba(0,210,200,.12);color:var(--c-cyan)">#Provider</span>
+            <span class="mtag" style="background:rgba(0,150,136,.12);color:var(--c-teal)">#Pemimpin</span>
+            <span class="mtag" style="background:rgba(0,150,136,.12);color:var(--c-teal)">#Provider</span>
           </div>
         </div>
-        <div class="mc-accent" style="background:linear-gradient(90deg,var(--c-cyan),var(--c-teal))"></div>
+        <div class="mc-accent" style="background:linear-gradient(90deg,var(--c-teal),var(--c-green))"></div>
       </div>
       <div class="member-card reveal" data-delay="100">
         <div class="mc-img"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104790/ibu_qhaosr.jpg" alt="Ibu"><div class="mc-overlay"></div></div>
         <div class="mc-body">
-          <div class="mc-role" style="color:var(--c-coral)">Ibu · The Heart</div>
+          <div class="mc-role" style="color:var(--c-rose)">Ibu · The Heart</div>
           <div class="mc-name">Anisa Fitriani</div>
           <div class="mc-quote">"Jantung rumah yang selalu memberikan kehangatan."</div>
           <div class="mc-tags">
-            <span class="mtag" style="background:rgba(255,107,107,.12);color:var(--c-coral)">#Queen</span>
-            <span class="mtag" style="background:rgba(255,107,107,.12);color:var(--c-coral)">#Manager</span>
+            <span class="mtag" style="background:rgba(229,57,53,.1);color:var(--c-rose)">#Queen</span>
+            <span class="mtag" style="background:rgba(229,57,53,.1);color:var(--c-rose)">#Manager</span>
           </div>
         </div>
-        <div class="mc-accent" style="background:linear-gradient(90deg,var(--c-coral),var(--c-sun))"></div>
+        <div class="mc-accent" style="background:linear-gradient(90deg,var(--c-rose),var(--c-amber))"></div>
       </div>
       <div class="member-card reveal" data-delay="200">
         <div class="mc-img"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104799/aleena_odggqv.jpg" alt="Aleena"><div class="mc-overlay"></div></div>
         <div class="mc-body">
-          <div class="mc-role" style="color:var(--c-sky)">Kakak · The Princess</div>
+          <div class="mc-role" style="color:var(--c-blue)">Kakak · The Princess</div>
           <div class="mc-name">Aleena Naira Hana</div>
           <div class="mc-quote">"Bintang kecil yang ceria dan penuh kejutan."</div>
           <div class="mc-tags">
-            <span class="mtag" style="background:rgba(100,200,255,.12);color:var(--c-sky)">#Smart</span>
-            <span class="mtag" style="background:rgba(100,200,255,.12);color:var(--c-sky)">#Creative</span>
+            <span class="mtag" style="background:rgba(66,133,244,.1);color:var(--c-blue)">#Smart</span>
+            <span class="mtag" style="background:rgba(66,133,244,.1);color:var(--c-blue)">#Creative</span>
           </div>
         </div>
-        <div class="mc-accent" style="background:linear-gradient(90deg,var(--c-sky),var(--c-foam))"></div>
+        <div class="mc-accent" style="background:linear-gradient(90deg,var(--c-blue),var(--c-teal))"></div>
       </div>
       <div class="member-card reveal" data-delay="300">
         <div class="mc-img"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104828/zyan_u2ntjl.jpg" alt="Zyan"><div class="mc-overlay"></div></div>
         <div class="mc-body">
-          <div class="mc-role" style="color:var(--c-sun)">Adik · The Prince</div>
+          <div class="mc-role" style="color:var(--c-amber)">Adik · The Prince</div>
           <div class="mc-name">Muhammad Zyan Alfatih</div>
           <div class="mc-quote">"Jagoan kecil yang lucu dan menggemaskan."</div>
           <div class="mc-tags">
-            <span class="mtag" style="background:rgba(255,214,0,.12);color:var(--c-sun)">#Active</span>
-            <span class="mtag" style="background:rgba(255,160,50,.12);color:var(--c-orange)">#Cute</span>
+            <span class="mtag" style="background:rgba(251,188,5,.12);color:var(--c-amber)">#Active</span>
+            <span class="mtag" style="background:rgba(251,188,5,.12);color:var(--c-amber)">#Cute</span>
           </div>
         </div>
-        <div class="mc-accent" style="background:linear-gradient(90deg,var(--c-sun),var(--c-orange))"></div>
+        <div class="mc-accent" style="background:linear-gradient(90deg,var(--c-amber),var(--c-rose))"></div>
       </div>
     </div>
   </div>
-  <div class="wave-divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,20 C480,80 960,0 1440,60 L1440,80 L0,80 Z" fill="var(--c-ocean2)"/></svg></div>
+  <div class="wave-divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,20 C480,80 960,0 1440,60 L1440,80 L0,80 Z" fill="var(--c-sand2)"/></svg></div>
 </section>
 
 <!-- GALERI -->
 <section class="sec sec-alt" id="s3">
   <div class="sec-inner vertical">
     <div class="slide-header">
-      <div class="reveal section-eyebrow" style="color:var(--c-sky)">
-        <span class="eyebrow-line" style="background:var(--c-sky)"></span>Galeri Foto
+      <div class="reveal section-eyebrow" style="color:var(--c-blue)">
+        <span class="eyebrow-line" style="background:var(--c-blue)"></span>Galeri Foto
       </div>
       <h2 class="section-h2">
-        <span class="word-line"><span class="reveal-word">Kenangan <span style="color:var(--c-sky)">Berharga</span></span></span>
+        <span class="word-line"><span class="reveal-word">Kenangan <span style="color:var(--c-blue)">Berharga</span></span></span>
       </h2>
     </div>
     <div class="galeri-grid reveal">
-      <div class="gp gc1" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-coral)"></div></div>
-      <div class="gp gc2" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-sun)"></div></div>
-      <div class="gp gc3" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104801/foto5_ocnqub.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104801/foto5_ocnqub.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-cyan)"></div></div>
-      <div class="gp gc4" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104811/foto6_grc5xl.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104811/foto6_grc5xl.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-foam)"></div></div>
-      <div class="gp gc5" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104776/foto7_torqpu.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104776/foto7_torqpu.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-sky)"></div></div>
+      <div class="gp gc1" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-rose)"></div></div>
+      <div class="gp gc2" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-amber)"></div></div>
+      <div class="gp gc3" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104801/foto5_ocnqub.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104801/foto5_ocnqub.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-teal)"></div></div>
+      <div class="gp gc4" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104811/foto6_grc5xl.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104811/foto6_grc5xl.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-green)"></div></div>
+      <div class="gp gc5" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104776/foto7_torqpu.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104776/foto7_torqpu.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-blue)"></div></div>
       <div class="gp gc6" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104772/foto8_i0d6no.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104772/foto8_i0d6no.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-teal)"></div></div>
-      <div class="gp gc7" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104819/family_kqeuhj.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104819/family_kqeuhj.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-orange)"></div></div>
+      <div class="gp gc7" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104819/family_kqeuhj.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104819/family_kqeuhj.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-amber)"></div></div>
     </div>
   </div>
-  <div class="wave-divider wave-flip"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,60 C480,0 960,80 1440,20 L1440,80 L0,80 Z" fill="var(--c-ocean1)"/></svg></div>
+  <div class="wave-divider wave-flip"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,60 C480,0 960,80 1440,20 L1440,80 L0,80 Z" fill="var(--c-sand1)"/></svg></div>
 </section>
 
 <!-- PERJALANAN -->
 <section class="sec" id="s4">
   <div class="sec-inner vertical">
     <div class="slide-header">
-      <div class="reveal section-eyebrow" style="color:var(--c-orange)">
-        <span class="eyebrow-line" style="background:var(--c-orange)"></span>Perjalanan Kami
+      <div class="reveal section-eyebrow" style="color:var(--c-amber)">
+        <span class="eyebrow-line" style="background:var(--c-amber)"></span>Perjalanan Kami
       </div>
       <h2 class="section-h2">
-        <span class="word-line"><span class="reveal-word">Dari Awal <span style="color:var(--c-orange)">Hingga Sekarang</span></span></span>
+        <span class="word-line"><span class="reveal-word">Dari Awal <span style="color:var(--c-amber)">Hingga Sekarang</span></span></span>
       </h2>
     </div>
     <div class="tl-wrap reveal">
@@ -268,19 +265,19 @@
       <button class="tl-btn" id="tlNext"><i class="fas fa-arrow-right"></i></button>
     </div>
   </div>
-  <div class="wave-divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,0 1080,80 1440,40 L1440,80 L0,80 Z" fill="var(--c-ocean2)"/></svg></div>
+  <div class="wave-divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,0 1080,80 1440,40 L1440,80 L0,80 Z" fill="var(--c-sand2)"/></svg></div>
 </section>
 
 <!-- BUKU TAMU -->
 <section class="sec sec-alt" id="s5">
   <div class="sec-inner two-col">
     <div class="pesan-left">
-      <div class="reveal section-eyebrow" style="color:var(--c-foam)">
-        <span class="eyebrow-line" style="background:var(--c-foam)"></span>Buku Tamu
+      <div class="reveal section-eyebrow" style="color:var(--c-green)">
+        <span class="eyebrow-line" style="background:var(--c-green)"></span>Buku Tamu
       </div>
       <h2 class="section-h2">
         <span class="word-line"><span class="reveal-word">Tinggalkan</span></span>
-        <span class="word-line"><span class="reveal-word" style="color:var(--c-foam)">Pesan</span></span>
+        <span class="word-line"><span class="reveal-word" style="color:var(--c-green)">Pesan</span></span>
       </h2>
       <p class="reveal section-p">Doa dan pesan hangat untuk Alzy Family</p>
       <div class="reveal pesan-form">
@@ -299,18 +296,18 @@
     </div>
     <div class="reveal pesan-right">
       <div class="msg-list" id="msgList">
-        <div class="msg-card" style="border-left-color:var(--c-coral)">
-          <div class="msg-top"><div class="msg-av" style="background:var(--c-coral)">A</div><div><span class="msg-name">Anisa</span><span class="msg-rel">Ibu</span></div><span class="msg-time">Hari ini</span></div>
+        <div class="msg-card" style="border-left-color:var(--c-rose)">
+          <div class="msg-top"><div class="msg-av" style="background:var(--c-rose)">A</div><div><span class="msg-name">Anisa</span><span class="msg-rel">Ibu</span></div><span class="msg-time">Hari ini</span></div>
           <p class="msg-txt">"Semoga keluarga kita selalu dilimpahi kebahagiaan dan keberkahan. Aamiin."</p>
         </div>
-        <div class="msg-card" style="border-left-color:var(--c-cyan)">
-          <div class="msg-top"><div class="msg-av" style="background:var(--c-cyan)">I</div><div><span class="msg-name">Irpan</span><span class="msg-rel">Ayah</span></div><span class="msg-time">Hari ini</span></div>
+        <div class="msg-card" style="border-left-color:var(--c-teal)">
+          <div class="msg-top"><div class="msg-av" style="background:var(--c-teal)">I</div><div><span class="msg-name">Irpan</span><span class="msg-rel">Ayah</span></div><span class="msg-time">Hari ini</span></div>
           <p class="msg-txt">"Kalian adalah alasan aku tersenyum setiap pagi. Love you all ❤️"</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="wave-divider wave-flip"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,20 C720,80 1080,0 1440,50 L1440,80 L0,80 Z" fill="var(--c-ocean-deep)"/></svg></div>
+  <div class="wave-divider wave-flip"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,20 C720,80 1080,0 1440,50 L1440,80 L0,80 Z" fill="var(--c-sand-deep)"/></svg></div>
 </section>
 
 <!-- PENUTUP -->
