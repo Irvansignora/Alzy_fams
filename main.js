@@ -8,7 +8,7 @@
    'https://res.cloudinary.com/NAMA_CLOUD/image/upload/'
    Kosongkan kalau pakai local/Vercel static
 ══════════════════════════════════ */
-const CDN_BASE = '';
+const CDN_BASE = 'https://res.cloudinary.com/dyhvx9wit/image/upload/';
 
 function cdnSrc(file) {
   return CDN_BASE ? CDN_BASE + file : file;
