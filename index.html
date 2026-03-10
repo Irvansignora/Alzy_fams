@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alzy Family</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-bg"></div>
+  <div class="loader-content">
+    <div class="loader-logo-wrap">
+      <img id="loader-logo" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773105158/alzy-fams_qu7ewy.png" alt="">
+      <div class="loader-ring loader-ring-1"></div>
+      <div class="loader-ring loader-ring-2"></div>
+    </div>
+    <div class="loader-title">
+      <span class="lt-char">A</span><span class="lt-char">L</span><span class="lt-char">Z</span><span class="lt-char">Y</span>
+      <span class="lt-space"> </span>
+      <span class="lt-char">F</span><span class="lt-char">A</span><span class="lt-char">M</span><span class="lt-char">I</span><span class="lt-char">L</span><span class="lt-char">Y</span>
+    </div>
+    <div class="loader-sub">Est. 6 September 2020</div>
+    <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
+    <div class="loader-pct" id="loaderPct">0%</div>
+  </div>
+  <div class="loader-slice loader-slice-l"></div>
+  <div class="loader-slice loader-slice-r"></div>
+</div>
+
+<!-- WEBGL -->
+<canvas id="webgl-bg"></canvas>
+<div id="noise"></div>
+
+<!-- CURSOR -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="scrollToSection('s0')">
+      <img class="nav-logo-img" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773105158/alzy-fams_qu7ewy.png" alt="">
+      <div>
+        <span class="nav-logo-name">ALZY</span>
+        <span class="nav-logo-sub">FAMILY · EST 2020</span>
+      </div>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <span class="nav-link" onclick="scrollToSection('s1')">Cerita</span>
+      <span class="nav-link" onclick="scrollToSection('s2')">Anggota</span>
+      <span class="nav-link" onclick="scrollToSection('s3')">Galeri</span>
+      <span class="nav-link" onclick="scrollToSection('s4')">Perjalanan</span>
+      <span class="nav-link" onclick="scrollToSection('s5')">Pesan</span>
+      <button class="nav-cta" id="navCelebrate">✦ Celebrate</button>
+    </div>
+    <button class="nav-burger" id="burgerBtn"><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu">
+  <span class="mm-link" onclick="scrollToSection('s1');closeMM()">Cerita</span>
+  <span class="mm-link" onclick="scrollToSection('s2');closeMM()">Anggota</span>
+  <span class="mm-link" onclick="scrollToSection('s3');closeMM()">Galeri</span>
+  <span class="mm-link" onclick="scrollToSection('s4');closeMM()">Perjalanan</span>
+  <span class="mm-link" onclick="scrollToSection('s5');closeMM()">Pesan</span>
+</div>
+
+<!-- PAGE -->
+<div id="page-wrap">
+
+<!-- HERO -->
+<section class="sec" id="s0">
+  <div class="sec-inner hero-grid">
+    <div class="hero-left">
+      <div class="reveal hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span>Est. 6 September 2020</span>
+      </div>
+      <h1 class="hero-h1">
+        <span class="word-line"><span class="reveal-word">Selamat</span></span>
+        <span class="word-line"><span class="reveal-word">Datang</span></span>
+        <span class="word-line"><span class="reveal-word grad-text">Alzy Family</span></span>
+      </h1>
+      <p class="reveal hero-quote">"Rumah bukan tentang tempat, tapi tentang perasaan bersama orang yang kita cintai."</p>
+      <div class="reveal hero-btns">
+        <button class="btn-primary" onclick="scrollToSection('s3')"><i class="fas fa-camera"></i> Lihat Galeri</button>
+        <button class="btn-ghost" onclick="celebrate()"><i class="fas fa-star"></i> Celebrate!</button>
+      </div>
+      <div class="reveal hero-stats">
+        <div class="stat"><span class="stat-n grad-text">4</span><span class="stat-l">Anggota</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-n grad-text">6+</span><span class="stat-l">Tahun</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-n grad-text">∞</span><span class="stat-l">Kenangan</span></div>
+      </div>
+    </div>
+    <div class="reveal hero-right">
+      <div class="hero-img-wrap">
+        <div class="hero-glow"></div>
+        <img class="hero-img" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104819/family_kqeuhj.jpg" alt="Alzy Family">
+        <div class="hero-badge">
+          <img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773105158/alzy-fams_qu7ewy.png" alt="">
+          <div><div class="hb-title">Alzy Family</div><div class="hb-sub">Happy Family ✦ 2020</div></div>
+        </div>
+        <img class="hero-float" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773105158/alzy-fams_qu7ewy.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="wave-divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--c-ocean2)"/></svg></div>
+</section>
+
+<!-- CERITA -->
+<section class="sec sec-alt" id="s1">
+  <div class="sec-inner two-col">
+    <div class="reveal cerita-imgs">
+      <div class="ci-frame">
+        <img class="ci-a" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg" alt="">
+        <img class="ci-b" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg" alt="">
+        <div class="ci-corner tl"></div>
+        <div class="ci-corner br"></div>
+        <div class="ci-pill">Since 2020 🌊</div>
+      </div>
+    </div>
+    <div class="cerita-text">
+      <div class="reveal section-eyebrow" style="color:var(--c-cyan)">
+        <span class="eyebrow-line" style="background:var(--c-cyan)"></span>Cerita Kami
+      </div>
+      <h2 class="section-h2">
+        <span class="word-line"><span class="reveal-word">Dimulai dari</span></span>
+        <span class="word-line"><span class="reveal-word">sebuah</span></span>
+        <span class="word-line"><span class="reveal-word" style="color:var(--c-cyan)">ikatan suci</span></span>
+      </h2>
+      <p class="reveal section-p">Pada 6 September 2020, Muhamad Irpan Yasin & Anisa Fitriani memulai babak baru kehidupan. Kini kami berempat — dengan Aleena dan Zyan yang mengisi setiap hari dengan tawa dan cinta.</p>
+      <div class="reveal values-grid">
+        <div class="val-card"><div class="vi">❤️</div><div class="vt">Cinta</div><div class="vs">Prioritas utama</div></div>
+        <div class="val-card"><div class="vi">😄</div><div class="vt">Tawa</div><div class="vs">Setiap hari</div></div>
+        <div class="val-card"><div class="vi">🛡️</div><div class="vt">Perlindungan</div><div class="vs">Saling menjaga</div></div>
+        <div class="val-card"><div class="vi">⭐</div><div class="vt">Mimpi</div><div class="vs">Wujudkan bersama</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="wave-divider wave-flip"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--c-ocean1)"/></svg></div>
+</section>
+
+<!-- ANGGOTA -->
+<section class="sec" id="s2">
+  <div class="sec-inner vertical">
+    <div class="slide-header">
+      <div class="reveal section-eyebrow" style="color:var(--c-foam)">
+        <span class="eyebrow-line" style="background:var(--c-foam)"></span>Anggota Keluarga
+      </div>
+      <h2 class="section-h2">
+        <span class="word-line"><span class="reveal-word">Para <span style="color:var(--c-foam)">Pahlawan Super</span> Kami</span></span>
+      </h2>
+    </div>
+    <div class="members-grid">
+      <div class="member-card reveal" data-delay="0">
+        <div class="mc-img"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104794/irvan2_nx48yc.jpg" alt="Ayah"><div class="mc-overlay"></div></div>
+        <div class="mc-body">
+          <div class="mc-role" style="color:var(--c-cyan)">Ayah · The Protector</div>
+          <div class="mc-name">Muhamad Irpan Yasin</div>
+          <div class="mc-quote">"Kepala keluarga yang kuat dan penuh kasih sayang."</div>
+          <div class="mc-tags">
+            <span class="mtag" style="background:rgba(0,210,200,.12);color:var(--c-cyan)">#Pemimpin</span>
+            <span class="mtag" style="background:rgba(0,210,200,.12);color:var(--c-cyan)">#Provider</span>
+          </div>
+        </div>
+        <div class="mc-accent" style="background:linear-gradient(90deg,var(--c-cyan),var(--c-teal))"></div>
+      </div>
+      <div class="member-card reveal" data-delay="100">
+        <div class="mc-img"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104790/ibu_qhaosr.jpg" alt="Ibu"><div class="mc-overlay"></div></div>
+        <div class="mc-body">
+          <div class="mc-role" style="color:var(--c-coral)">Ibu · The Heart</div>
+          <div class="mc-name">Anisa Fitriani</div>
+          <div class="mc-quote">"Jantung rumah yang selalu memberikan kehangatan."</div>
+          <div class="mc-tags">
+            <span class="mtag" style="background:rgba(255,107,107,.12);color:var(--c-coral)">#Queen</span>
+            <span class="mtag" style="background:rgba(255,107,107,.12);color:var(--c-coral)">#Manager</span>
+          </div>
+        </div>
+        <div class="mc-accent" style="background:linear-gradient(90deg,var(--c-coral),var(--c-sun))"></div>
+      </div>
+      <div class="member-card reveal" data-delay="200">
+        <div class="mc-img"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104799/aleena_odggqv.jpg" alt="Aleena"><div class="mc-overlay"></div></div>
+        <div class="mc-body">
+          <div class="mc-role" style="color:var(--c-sky)">Kakak · The Princess</div>
+          <div class="mc-name">Aleena Naira Hana</div>
+          <div class="mc-quote">"Bintang kecil yang ceria dan penuh kejutan."</div>
+          <div class="mc-tags">
+            <span class="mtag" style="background:rgba(100,200,255,.12);color:var(--c-sky)">#Smart</span>
+            <span class="mtag" style="background:rgba(100,200,255,.12);color:var(--c-sky)">#Creative</span>
+          </div>
+        </div>
+        <div class="mc-accent" style="background:linear-gradient(90deg,var(--c-sky),var(--c-foam))"></div>
+      </div>
+      <div class="member-card reveal" data-delay="300">
+        <div class="mc-img"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104828/zyan_u2ntjl.jpg" alt="Zyan"><div class="mc-overlay"></div></div>
+        <div class="mc-body">
+          <div class="mc-role" style="color:var(--c-sun)">Adik · The Prince</div>
+          <div class="mc-name">Muhammad Zyan Alfatih</div>
+          <div class="mc-quote">"Jagoan kecil yang lucu dan menggemaskan."</div>
+          <div class="mc-tags">
+            <span class="mtag" style="background:rgba(255,214,0,.12);color:var(--c-sun)">#Active</span>
+            <span class="mtag" style="background:rgba(255,160,50,.12);color:var(--c-orange)">#Cute</span>
+          </div>
+        </div>
+        <div class="mc-accent" style="background:linear-gradient(90deg,var(--c-sun),var(--c-orange))"></div>
+      </div>
+    </div>
+  </div>
+  <div class="wave-divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,20 C480,80 960,0 1440,60 L1440,80 L0,80 Z" fill="var(--c-ocean2)"/></svg></div>
+</section>
+
+<!-- GALERI -->
+<section class="sec sec-alt" id="s3">
+  <div class="sec-inner vertical">
+    <div class="slide-header">
+      <div class="reveal section-eyebrow" style="color:var(--c-sky)">
+        <span class="eyebrow-line" style="background:var(--c-sky)"></span>Galeri Foto
+      </div>
+      <h2 class="section-h2">
+        <span class="word-line"><span class="reveal-word">Kenangan <span style="color:var(--c-sky)">Berharga</span></span></span>
+      </h2>
+    </div>
+    <div class="galeri-grid reveal">
+      <div class="gp gc1" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-coral)"></div></div>
+      <div class="gp gc2" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-sun)"></div></div>
+      <div class="gp gc3" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104801/foto5_ocnqub.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104801/foto5_ocnqub.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-cyan)"></div></div>
+      <div class="gp gc4" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104811/foto6_grc5xl.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104811/foto6_grc5xl.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-foam)"></div></div>
+      <div class="gp gc5" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104776/foto7_torqpu.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104776/foto7_torqpu.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-sky)"></div></div>
+      <div class="gp gc6" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104772/foto8_i0d6no.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104772/foto8_i0d6no.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-teal)"></div></div>
+      <div class="gp gc7" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104819/family_kqeuhj.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104819/family_kqeuhj.jpg" alt=""><div class="gp-ov"><div class="gp-icon"><i class="fas fa-expand-alt"></i></div></div><div class="gp-edge" style="--ec:var(--c-orange)"></div></div>
+    </div>
+  </div>
+  <div class="wave-divider wave-flip"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,60 C480,0 960,80 1440,20 L1440,80 L0,80 Z" fill="var(--c-ocean1)"/></svg></div>
+</section>
+
+<!-- PERJALANAN -->
+<section class="sec" id="s4">
+  <div class="sec-inner vertical">
+    <div class="slide-header">
+      <div class="reveal section-eyebrow" style="color:var(--c-orange)">
+        <span class="eyebrow-line" style="background:var(--c-orange)"></span>Perjalanan Kami
+      </div>
+      <h2 class="section-h2">
+        <span class="word-line"><span class="reveal-word">Dari Awal <span style="color:var(--c-orange)">Hingga Sekarang</span></span></span>
+      </h2>
+    </div>
+    <div class="tl-wrap reveal">
+      <div class="tl-track" id="tlTrack">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-icon">🌸</div><div class="tl-year">Sebelum 2020</div><div class="tl-title">Ta'aruf</div><div class="tl-desc">Proses mengenal dalam ikatan yang suci dan penuh keberkahan.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-icon">💍</div><div class="tl-year">6 September 2020</div><div class="tl-title">Pernikahan</div><div class="tl-desc">Akad nikah Muhamad Irpan Yasin & Anisa Fitriani. Awal dari segalanya.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-icon">👶</div><div class="tl-year">2021</div><div class="tl-title">Kelahiran Aleena</div><div class="tl-desc">Kedatangan Aleena Naira Hana, sang putri pertama yang membawa kebahagiaan.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-icon">🍼</div><div class="tl-year">2023</div><div class="tl-title">Kelahiran Zyan</div><div class="tl-desc">Muhammad Zyan Alfatih datang melengkapi kebahagiaan keluarga kecil kami.</div></div>
+        <div class="tl-item tl-current"><div class="tl-dot"></div><div class="tl-icon">🏡</div><div class="tl-year">2020 – Sekarang</div><div class="tl-title">Tumbuh Bersama</div><div class="tl-desc">Bersama membangun mimpi, menghadapi tantangan, dan tumbuh setiap harinya.</div></div>
+      </div>
+    </div>
+    <div class="reveal tl-nav">
+      <button class="tl-btn" id="tlPrev"><i class="fas fa-arrow-left"></i></button>
+      <button class="tl-btn" id="tlNext"><i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
+  <div class="wave-divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,0 1080,80 1440,40 L1440,80 L0,80 Z" fill="var(--c-ocean2)"/></svg></div>
+</section>
+
+<!-- BUKU TAMU -->
+<section class="sec sec-alt" id="s5">
+  <div class="sec-inner two-col">
+    <div class="pesan-left">
+      <div class="reveal section-eyebrow" style="color:var(--c-foam)">
+        <span class="eyebrow-line" style="background:var(--c-foam)"></span>Buku Tamu
+      </div>
+      <h2 class="section-h2">
+        <span class="word-line"><span class="reveal-word">Tinggalkan</span></span>
+        <span class="word-line"><span class="reveal-word" style="color:var(--c-foam)">Pesan</span></span>
+      </h2>
+      <p class="reveal section-p">Doa dan pesan hangat untuk Alzy Family</p>
+      <div class="reveal pesan-form">
+        <div class="form-row">
+          <input id="gbName" class="form-input" type="text" placeholder="Nama Anda">
+          <select id="gbRel" class="form-input">
+            <option value="Saudara">Saudara</option>
+            <option value="Teman">Teman</option>
+            <option value="Kerabat">Kerabat</option>
+            <option value="Tetangga">Tetangga</option>
+          </select>
+        </div>
+        <textarea id="gbMsg" class="form-input form-ta" rows="3" placeholder="Tulis pesan untuk Alzy Family..."></textarea>
+        <button class="btn-send" onclick="addMsg()"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
+      </div>
+    </div>
+    <div class="reveal pesan-right">
+      <div class="msg-list" id="msgList">
+        <div class="msg-card" style="border-left-color:var(--c-coral)">
+          <div class="msg-top"><div class="msg-av" style="background:var(--c-coral)">A</div><div><span class="msg-name">Anisa</span><span class="msg-rel">Ibu</span></div><span class="msg-time">Hari ini</span></div>
+          <p class="msg-txt">"Semoga keluarga kita selalu dilimpahi kebahagiaan dan keberkahan. Aamiin."</p>
+        </div>
+        <div class="msg-card" style="border-left-color:var(--c-cyan)">
+          <div class="msg-top"><div class="msg-av" style="background:var(--c-cyan)">I</div><div><span class="msg-name">Irpan</span><span class="msg-rel">Ayah</span></div><span class="msg-time">Hari ini</span></div>
+          <p class="msg-txt">"Kalian adalah alasan aku tersenyum setiap pagi. Love you all ❤️"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wave-divider wave-flip"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,20 C720,80 1080,0 1440,50 L1440,80 L0,80 Z" fill="var(--c-ocean-deep)"/></svg></div>
+</section>
+
+<!-- PENUTUP -->
+<section class="sec sec-deep" id="s6">
+  <div class="sec-inner vertical penutup-inner">
+    <img class="reveal penutup-logo" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773105158/alzy-fams_qu7ewy.png" alt="">
+    <h2 class="penutup-h2">
+      <span class="word-line"><span class="reveal-word big-grad">ALZY FAMILY</span></span>
+    </h2>
+    <p class="reveal penutup-quote">"Keluarga adalah tempat di mana hidup dimulai dan cinta tidak pernah berakhir."</p>
+    <div class="reveal penutup-btns">
+      <button class="btn-primary" onclick="scrollToSection('s0')"><i class="fas fa-home"></i> Kembali ke Awal</button>
+      <button class="btn-ghost" onclick="celebrate()"><i class="fas fa-heart"></i> Celebrate!</button>
+    </div>
+    <div class="reveal penutup-socials">
+      <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="soc-btn"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <div class="reveal penutup-copy">© 2026 Alzy Family · Muhamad Irpan Yasin & Anisa Fitriani · Est. 6 September 2020</div>
+  </div>
+</section>
+
+</div><!-- /page-wrap -->
+
+<!-- LIGHTBOX -->
+<div id="lb">
+  <button id="lb-close" onclick="closeLb()">&times;</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

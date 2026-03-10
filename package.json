@@ -1,0 +1,13 @@
+{
+  "name": "alzy-family",
+  "version": "1.0.0",
+  "description": "Alzy Family Website — Ocean Theme · Three.js · GSAP",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
