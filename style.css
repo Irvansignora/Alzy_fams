@@ -101,13 +101,13 @@ body {
 .loader-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(2.4rem,6vw,4.5rem); letter-spacing: .25em;
-  color: var(--c-ink); margin-bottom: 10px; display: flex;
+  color: var(--c-ink); margin-bottom: 10px; display: flex; opacity: 1;
 }
 .lt-char { opacity:0; transform:translateY(30px); display:inline-block; }
 .lt-space { display:inline-block; width:.5em; }
 .loader-sub {
   font-size: .62rem; letter-spacing: .28em; text-transform: uppercase;
-  color: var(--c-dim); margin-bottom: 36px; opacity: 0;
+  color: var(--c-ink2); margin-bottom: 36px; opacity: 0;
 }
 .loader-bar-wrap {
   width: 240px; height: 2px; background: rgba(180,130,80,.15);
@@ -123,7 +123,7 @@ body {
 @keyframes barShift { 0%{background-position:0%} 100%{background-position:300%} }
 .loader-pct {
   font-family: 'Bebas Neue', sans-serif; font-size:1rem; letter-spacing:.2em;
-  color: var(--c-dim); opacity: 0;
+  color: var(--c-ink2); opacity: 0;
 }
 
 /* ══ CANVAS BG ══ */
