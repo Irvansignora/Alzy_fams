@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alzy Family</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── CURSOR ── -->
+<div id="cur"></div>
+<div id="cur2"></div>
+
+<!-- ── PROGRESS DOTS ── -->
+<div id="progress"></div>
+
+<!-- ── SLIDE COUNTER ── -->
+<div id="slide-counter"><span id="sc-cur">01</span> / <span id="sc-tot">07</span></div>
+
+<!-- ── SCROLL HINT ── -->
+<div id="scroll-hint">
+  <p>Scroll</p>
+  <div id="scroll-hint-line"></div>
+</div>
+
+<!-- ══════════════════════════════════
+     NAVBAR
+══════════════════════════════════ -->
+<nav id="nav" class="solid">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="goTo(0);return false;">
+      <!-- CLOUDINARY: data-src="alzy-fams.png" -->
+      <img class="nav-logo-img" data-src="alzy-fams.png" src="alzy-fams.png" alt="Alzy Family">
+      <div>
+        <span class="nav-logo-name">Alzy Family</span>
+        <span class="nav-logo-sub">Est. Sept 2020</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <span class="nav-link" onclick="goTo(1)">Cerita Kami</span>
+      <span class="nav-link" onclick="goTo(2)">Anggota</span>
+      <span class="nav-link" onclick="goTo(3)">Galeri</span>
+      <span class="nav-link" onclick="goTo(4)">Perjalanan</span>
+      <span class="nav-link" onclick="goTo(5)">Buku Tamu</span>
+      <button class="nav-celebrate" onclick="celebrate()">✦ Celebrate!</button>
+    </div>
+    <button id="menuBtn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  </div>
+  <div id="mobileMenu">
+    <a onclick="goTo(1);toggleMenu()">Cerita Kami</a>
+    <a onclick="goTo(2);toggleMenu()">Anggota</a>
+    <a onclick="goTo(3);toggleMenu()">Galeri</a>
+    <a onclick="goTo(4);toggleMenu()">Perjalanan</a>
+    <a onclick="goTo(5);toggleMenu()">Buku Tamu</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════
+     MAIN WRAPPER
+══════════════════════════════════ -->
+<div id="wrapper">
+
+<!-- ═══ SLIDE 0: HERO ═══ -->
+<div class="slide" id="s0">
+  <div class="s0-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="s0-content">
+    <div class="s0-left">
+      <div class="s0-tag">Est. 6 September 2020</div>
+      <h1 class="s0-h1">
+        <span class="line"><span>Selamat</span></span>
+        <span class="line"><span>Datang di</span></span>
+        <span class="line"><span class="color-coral">Alzy</span> <span class="color-yellow">Family</span></span>
+      </h1>
+      <p class="s0-quote">"Rumah bukan tentang tempat, tapi tentang perasaan bersama orang-orang yang kita cintai."</p>
+      <div class="s0-btns">
+        <button class="btn-main btn-filled" onclick="goTo(3)"><i class="fas fa-camera"></i> Lihat Galeri</button>
+        <button class="btn-main btn-outlined" onclick="celebrate()"><i class="fas fa-star"></i> Celebrate!</button>
+      </div>
+      <div class="s0-stats">
+        <div>
+          <div class="s0-stat-num">4</div>
+          <div class="s0-stat-label">Anggota</div>
+        </div>
+        <div>
+          <div class="s0-stat-num">6+</div>
+          <div class="s0-stat-label">Tahun</div>
+        </div>
+        <div>
+          <div class="s0-stat-num">∞</div>
+          <div class="s0-stat-label">Kenangan</div>
+        </div>
+      </div>
+    </div>
+    <div class="s0-right">
+      <div class="s0-img-wrap">
+        <!-- CLOUDINARY: ganti src → data-src dan isi CDN_BASE di main.js -->
+        <div class="s0-img-glow"></div>
+        <img class="s0-img-main" src="family.jpg" data-src="family.jpg" alt="Alzy Family">
+        <img class="s0-img-float" src="alzy-fams.png" data-src="alzy-fams.png" alt="Logo">
+        <div class="s0-img-badge">
+          <img class="s0-badge-logo" src="alzy-fams.png" data-src="alzy-fams.png" alt="Logo">
+          <div>
+            <div class="s0-badge-text">Alzy Family</div>
+            <div class="s0-badge-sub">Happy Family ✦ Est. 2020</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 1: CERITA KAMI ═══ -->
+<div class="slide" id="s1">
+  <div class="s1-orbs">
+    <div class="s1-orb1"></div>
+    <div class="s1-orb2"></div>
+  </div>
+  <div class="s1-content">
+    <div class="s1-img-block si-left d1">
+      <div class="s1-corner"></div>
+      <!-- CLOUDINARY: ganti src -->
+      <img class="s1-img-a" src="irvan.jpg" data-src="irvan.jpg" alt="Keluarga">
+      <img class="s1-img-b" src="foto4.jpg" data-src="foto4.jpg" alt="Kenangan">
+      <div class="s1-tag-pill">Since 2020 💚</div>
+    </div>
+    <div class="s1-text">
+      <div class="s1-kicker si-up d1">Cerita Kami</div>
+      <h2 class="s1-h2 si-up d2">Dimulai dari<br>sebuah <em>ikatan suci</em></h2>
+      <p class="s1-p si-up d3">Pada 6 September 2020, Muhamad Irpan Yasin &amp; Anisa Fitriani memulai babak baru kehidupan. Kini kami berempat — dengan Aleena dan Zyan yang mengisi setiap hari dengan tawa dan cinta.</p>
+      <div class="s1-values si-up d4">
+        <div class="s1-val">
+          <div class="s1-val-icon">❤️</div>
+          <div><div class="s1-val-title">Cinta</div><div class="s1-val-sub">Prioritas utama</div></div>
+        </div>
+        <div class="s1-val">
+          <div class="s1-val-icon">😄</div>
+          <div><div class="s1-val-title">Tawa</div><div class="s1-val-sub">Setiap hari</div></div>
+        </div>
+        <div class="s1-val">
+          <div class="s1-val-icon">🛡️</div>
+          <div><div class="s1-val-title">Perlindungan</div><div class="s1-val-sub">Saling menjaga</div></div>
+        </div>
+        <div class="s1-val">
+          <div class="s1-val-icon">⭐</div>
+          <div><div class="s1-val-title">Mimpi</div><div class="s1-val-sub">Wujudkan bersama</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 2: ANGGOTA ═══ -->
+<div class="slide" id="s2">
+  <div class="s2-orbs">
+    <div class="s2-orb1"></div>
+  </div>
+  <div class="s2-content">
+    <div class="s2-header">
+      <div class="s2-kicker si-up d1">Anggota Keluarga</div>
+      <h2 class="s2-h2 si-up d2">Para <em>Pahlawan Super</em> Kami</h2>
+    </div>
+    <div class="s2-grid">
+      <!-- Ayah -->
+      <div class="s2-card si-up d2">
+        <!-- CLOUDINARY: src="irvan2.jpeg" -->
+        <img class="s2-card-img" src="irvan2.jpeg" data-src="irvan2.jpeg" alt="Ayah">
+        <div class="s2-card-body">
+          <div class="s2-card-role" style="color:var(--c-mint);">Ayah · The Protector</div>
+          <div class="s2-card-name">Muhamad Irpan Yasin</div>
+          <div class="s2-card-quote">"Kepala keluarga yang kuat dan penuh kasih sayang."</div>
+          <div class="s2-card-tags">
+            <span class="s2-tag" style="background:rgba(110,255,168,.12);color:var(--c-mint);">#Pemimpin</span>
+            <span class="s2-tag" style="background:rgba(110,255,168,.12);color:var(--c-mint);">#Provider</span>
+          </div>
+        </div>
+      </div>
+      <!-- Ibu -->
+      <div class="s2-card si-up d3">
+        <!-- CLOUDINARY: src="ibu.jpg" -->
+        <img class="s2-card-img" src="ibu.jpg" data-src="ibu.jpg" alt="Ibu">
+        <div class="s2-card-body">
+          <div class="s2-card-role" style="color:var(--c-coral);">Ibu · The Heart</div>
+          <div class="s2-card-name">Anisa Fitriani</div>
+          <div class="s2-card-quote">"Jantung rumah yang selalu memberikan kehangatan."</div>
+          <div class="s2-card-tags">
+            <span class="s2-tag" style="background:rgba(255,92,92,.12);color:var(--c-coral);">#Queen</span>
+            <span class="s2-tag" style="background:rgba(255,92,92,.12);color:var(--c-coral);">#Manager</span>
+          </div>
+        </div>
+      </div>
+      <!-- Aleena -->
+      <div class="s2-card si-up d4">
+        <!-- CLOUDINARY: src="aleena.jpg" -->
+        <img class="s2-card-img" src="aleena.jpg" data-src="aleena.jpg" alt="Aleena">
+        <div class="s2-card-body">
+          <div class="s2-card-role" style="color:var(--c-sky);">Kakak · The Princess</div>
+          <div class="s2-card-name">Aleena Naira Hana</div>
+          <div class="s2-card-quote">"Bintang kecil yang ceria dan penuh kejutan."</div>
+          <div class="s2-card-tags">
+            <span class="s2-tag" style="background:rgba(92,225,255,.12);color:var(--c-sky);">#Smart</span>
+            <span class="s2-tag" style="background:rgba(201,126,255,.12);color:var(--c-lav);">#Creative</span>
+          </div>
+        </div>
+      </div>
+      <!-- Zyan -->
+      <div class="s2-card si-up d5">
+        <!-- CLOUDINARY: src="zyan.jpg" -->
+        <img class="s2-card-img" src="zyan.jpg" data-src="zyan.jpg" alt="Zyan">
+        <div class="s2-card-body">
+          <div class="s2-card-role" style="color:var(--c-yellow);">Adik · The Prince</div>
+          <div class="s2-card-name">Muhammad Zyan Alfatih</div>
+          <div class="s2-card-quote">"Jagoan kecil yang lucu dan menggemaskan."</div>
+          <div class="s2-card-tags">
+            <span class="s2-tag" style="background:rgba(255,217,61,.12);color:var(--c-yellow);">#Active</span>
+            <span class="s2-tag" style="background:rgba(255,140,66,.12);color:var(--c-orange);">#Cute</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 3: GALERI ═══ -->
+<div class="slide" id="s3">
+  <div class="s3-content">
+    <div class="s3-header">
+      <div>
+        <div class="s3-kicker si-up d1">Galeri Foto</div>
+        <h2 class="s3-h2 si-up d2">Kenangan <em>Berharga</em></h2>
+      </div>
+      <div class="s3-num si-fade d3">07</div>
+    </div>
+    <div class="s3-grid si-up d2">
+      <!-- CLOUDINARY: ganti semua src foto -->
+      <div class="g-ph gc1" onclick="openLb('irvan.jpg')">
+        <img src="irvan.jpg" data-src="irvan.jpg" alt="Foto keluarga">
+        <div class="g-ph-ov"><div class="g-ph-icon"><i class="fas fa-expand-alt"></i></div></div>
+      </div>
+      <div class="g-ph gc2" onclick="openLb('foto4.jpg')">
+        <img src="foto4.jpg" data-src="foto4.jpg" alt="Foto keluarga">
+        <div class="g-ph-ov"><div class="g-ph-icon"><i class="fas fa-expand-alt"></i></div></div>
+      </div>
+      <div class="g-ph gc3" onclick="openLb('foto5.jpg')">
+        <img src="foto5.jpg" data-src="foto5.jpg" alt="Foto keluarga">
+        <div class="g-ph-ov"><div class="g-ph-icon"><i class="fas fa-expand-alt"></i></div></div>
+      </div>
+      <div class="g-ph gc4" onclick="openLb('foto6.jpg')">
+        <img src="foto6.jpg" data-src="foto6.jpg" alt="Foto keluarga">
+        <div class="g-ph-ov"><div class="g-ph-icon"><i class="fas fa-expand-alt"></i></div></div>
+      </div>
+      <div class="g-ph gc5" onclick="openLb('foto7.jpg')">
+        <img src="foto7.jpg" data-src="foto7.jpg" alt="Foto keluarga">
+        <div class="g-ph-ov"><div class="g-ph-icon"><i class="fas fa-expand-alt"></i></div></div>
+      </div>
+      <div class="g-ph gc6" onclick="openLb('foto8.jpg')">
+        <img src="foto8.jpg" data-src="foto8.jpg" alt="Foto keluarga">
+        <div class="g-ph-ov"><div class="g-ph-icon"><i class="fas fa-expand-alt"></i></div></div>
+      </div>
+      <div class="g-ph gc7" onclick="openLb('family.jpg')">
+        <img src="family.jpg" data-src="family.jpg" alt="Foto keluarga">
+        <div class="g-ph-ov"><div class="g-ph-icon"><i class="fas fa-expand-alt"></i></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 4: TIMELINE ═══ -->
+<div class="slide" id="s4">
+  <div class="s4-orbs">
+    <div class="s4-orb1"></div>
+    <div class="s4-orb2"></div>
+  </div>
+  <div class="s4-content">
+    <div class="s4-kicker si-up d1">Perjalanan Kami</div>
+    <h2 class="s4-h2 si-up d2">Dari Awal <em>Hingga Sekarang</em></h2>
+    <div class="s4-track-wrap si-up d3">
+      <div class="s4-track" id="s4track">
+        <div class="s4-item">
+          <div class="s4-icon">🌸</div>
+          <div class="s4-year">Sebelum 2020</div>
+          <div class="s4-title">Ta'aruf</div>
+          <div class="s4-desc">Proses mengenal dalam ikatan yang suci dan penuh keberkahan.</div>
+        </div>
+        <div class="s4-item">
+          <div class="s4-icon">💍</div>
+          <div class="s4-year">6 September 2020</div>
+          <div class="s4-title">Pernikahan</div>
+          <div class="s4-desc">Akad nikah Muhamad Irpan Yasin &amp; Anisa Fitriani. Awal dari segalanya.</div>
+        </div>
+        <div class="s4-item">
+          <div class="s4-icon">👶</div>
+          <div class="s4-year">2021</div>
+          <div class="s4-title">Kelahiran Aleena</div>
+          <div class="s4-desc">Kedatangan Aleena Naira Hana, sang putri pertama yang membawa kebahagiaan.</div>
+        </div>
+        <div class="s4-item">
+          <div class="s4-icon">🍼</div>
+          <div class="s4-year">2023</div>
+          <div class="s4-title">Kelahiran Zyan</div>
+          <div class="s4-desc">Muhammad Zyan Alfatih datang melengkapi kebahagiaan keluarga kecil kami.</div>
+        </div>
+        <div class="s4-item current">
+          <div class="s4-icon">🏡</div>
+          <div class="s4-year">2020 – Sekarang</div>
+          <div class="s4-title">Tumbuh Bersama</div>
+          <div class="s4-desc">Bersama membangun mimpi, menghadapi tantangan, dan tumbuh setiap harinya.</div>
+        </div>
+      </div>
+    </div>
+    <div class="s4-nav si-up d4">
+      <button class="s4-btn" onclick="tlMove(-1)"><i class="fas fa-arrow-left"></i></button>
+      <button class="s4-btn" onclick="tlMove(1)"><i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 5: BUKU TAMU ═══ -->
+<div class="slide" id="s5">
+  <div class="s5-orbs">
+    <div class="s5-orb1"></div>
+  </div>
+  <div class="s5-content">
+    <div class="s5-left">
+      <div class="s5-kicker si-up d1">Buku Tamu</div>
+      <h2 class="s5-h2 si-up d2">Tinggalkan<br><em>Pesan</em></h2>
+      <p class="s5-sub si-up d3">Doa dan pesan hangat untuk Alzy Family</p>
+      <div class="s5-row si-up d3">
+        <input id="gbName" class="s5-input" type="text" placeholder="Nama Anda">
+        <select id="gbRel" class="s5-input">
+          <option value="Saudara">Saudara</option>
+          <option value="Teman">Teman</option>
+          <option value="Kerabat">Kerabat</option>
+          <option value="Tetangga">Tetangga</option>
+        </select>
+      </div>
+      <textarea id="gbMsg" class="s5-input si-up d4" rows="3" placeholder="Tulis pesan untuk Alzy Family..."></textarea>
+      <button class="s5-send si-up d5" onclick="addMsg()">
+        <i class="fas fa-paper-plane"></i> Kirim Pesan
+      </button>
+    </div>
+    <div class="s5-right si-up d2">
+      <div class="s5-msgs" id="msgList">
+        <div class="s5-msg">
+          <div class="s5-msg-top">
+            <div style="display:flex;align-items:center;">
+              <div class="s5-ava" style="background:var(--c-coral);">A</div>
+              <span class="s5-name">Anisa</span><span class="s5-rel">Ibu</span>
+            </div>
+            <span class="s5-time">Hari ini</span>
+          </div>
+          <p class="s5-text">"Semoga keluarga kita selalu dilimpahi kebahagiaan dan keberkahan. Aamiin."</p>
+        </div>
+        <div class="s5-msg">
+          <div class="s5-msg-top">
+            <div style="display:flex;align-items:center;">
+              <div class="s5-ava" style="background:var(--c-mint);">I</div>
+              <span class="s5-name">Irpan</span><span class="s5-rel">Ayah</span>
+            </div>
+            <span class="s5-time">Hari ini</span>
+          </div>
+          <p class="s5-text">"Kalian adalah alasan aku tersenyum setiap pagi. Love you all ❤️"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 6: PENUTUP ═══ -->
+<div class="slide" id="s6">
+  <div class="s6-orbs">
+    <div class="s6-orb1"></div>
+    <div class="s6-orb2"></div>
+    <div class="s6-orb3"></div>
+  </div>
+  <div class="s6-content">
+    <!-- CLOUDINARY: ganti src -->
+    <img class="s6-logo-img si-fade d1" src="alzy-fams.png" data-src="alzy-fams.png" alt="Alzy Family">
+    <h2 class="s6-h2 si-up d2">
+      <span class="s6-h1-grad">Alzy</span><br>
+      <em>Family</em>
+    </h2>
+    <p class="s6-quote si-up d3">"Keluarga adalah tempat di mana hidup dimulai dan cinta tidak pernah berakhir."</p>
+    <div class="s6-btns si-up d4">
+      <button class="btn-main btn-filled" onclick="goTo(0)"><i class="fas fa-home"></i> Kembali ke Awal</button>
+      <button class="btn-main btn-outlined" onclick="celebrate()"><i class="fas fa-heart"></i> Celebrate!</button>
+    </div>
+    <div class="s6-socials si-up d5">
+      <a href="#" class="s6-soc"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="s6-soc"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="s6-soc"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <div class="s6-copy si-up d6">© 2026 Alzy Family · Muhamad Irpan Yasin &amp; Anisa Fitriani · Est. 6 September 2020</div>
+  </div>
+</div>
+
+</div><!-- /wrapper -->
+
+<!-- LIGHTBOX -->
+<div id="lb">
+  <button id="lb-close" onclick="closeLb()">&times;</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<!-- Confetti + Main JS -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
