@@ -77,29 +77,59 @@ function initSlides() {
     animateSlideContent(slides[0]);
   }
 
-  // Deteksi Scroll Mouse (Mouse Wheel)
+  // Helper: cek apakah slide aktif sudah di-scroll sampai bawah / atas
+  function isSlideAtBottom(slide) {
+    return slide.scrollHeight - slide.scrollTop - slide.clientHeight < 5;
+  }
+  function isSlideAtTop(slide) {
+    return slide.scrollTop < 5;
+  }
+
+  // Debounce wheel agar tidak terlalu sensitif
+  let wheelTimeout = null;
+  let wheelAccum = 0;
+  const WHEEL_THRESHOLD = 150; // makin besar makin susah pindah slide
+
   window.addEventListener('wheel', function(e) {
     if (isAnimating) return;
-    if (e.deltaY > 50) goToSlide(currentSlide + 1);
-    else if (e.deltaY < -50) goToSlide(currentSlide - 1);
-  }, { passive: false });
+    const activeSlide = slides[currentSlide];
+
+    // Kalau konten bisa discroll, izinkan scroll dulu
+    if (e.deltaY > 0 && !isSlideAtBottom(activeSlide)) return;
+    if (e.deltaY < 0 && !isSlideAtTop(activeSlide)) return;
+
+    // Akumulasi scroll delta
+    wheelAccum += e.deltaY;
+    clearTimeout(wheelTimeout);
+    wheelTimeout = setTimeout(() => { wheelAccum = 0; }, 300);
+
+    if (wheelAccum > WHEEL_THRESHOLD) {
+      wheelAccum = 0;
+      goToSlide(currentSlide + 1);
+    } else if (wheelAccum < -WHEEL_THRESHOLD) {
+      wheelAccum = 0;
+      goToSlide(currentSlide - 1);
+    }
+  }, { passive: true });
 
   // Deteksi Keyboard (Panah Atas/Bawah)
   window.addEventListener('keydown', function(e) {
     if (isAnimating) return;
-    if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') goToSlide(currentSlide + 1);
-    if (e.key === 'ArrowUp' || e.key === 'PageUp') goToSlide(currentSlide - 1);
+    const activeSlide = slides[currentSlide];
+    if ((e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') && isSlideAtBottom(activeSlide)) goToSlide(currentSlide + 1);
+    if ((e.key === 'ArrowUp' || e.key === 'PageUp') && isSlideAtTop(activeSlide)) goToSlide(currentSlide - 1);
   });
 
-  // Deteksi Swipe Layar HP (Touch)
+  // Deteksi Swipe Layar HP (Touch) — threshold lebih besar
   let touchStartY = 0;
   window.addEventListener('touchstart', e => touchStartY = e.touches[0].clientY, { passive: true });
   window.addEventListener('touchend', e => {
     if (isAnimating) return;
+    const activeSlide = slides[currentSlide];
     let touchEndY = e.changedTouches[0].clientY;
     let diff = touchStartY - touchEndY;
-    if (diff > 50) goToSlide(currentSlide + 1); // Swipe Up -> Next
-    else if (diff < -50) goToSlide(currentSlide - 1); // Swipe Down -> Prev
+    if (diff > 80 && isSlideAtBottom(activeSlide)) goToSlide(currentSlide + 1);
+    else if (diff < -80 && isSlideAtTop(activeSlide)) goToSlide(currentSlide - 1);
   }, { passive: true });
 }
 
@@ -432,4 +462,3 @@ ready(function() {
   var navCelebrate = document.getElementById('navCelebrate');
   if (navCelebrate) navCelebrate.addEventListener('click', window.celebrate);
 });
-
