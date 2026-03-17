@@ -68,11 +68,11 @@
       <span class="nav-logo-name">Alzy Family</span>
     </div>
     <div class="nav-links" id="navLinks">
-      <span class="nav-link" onclick="scrollToSection('s1')">Cerita</span>
-      <span class="nav-link" onclick="scrollToSection('s2')">Anggota</span>
-      <span class="nav-link" onclick="scrollToSection('s3')">Galeri</span>
-      <span class="nav-link" onclick="scrollToSection('s4')">Perjalanan</span>
-      <span class="nav-link" onclick="scrollToSection('s5')">Pesan</span>
+      <span class="nav-link" onclick="goToSlide(1)">Cerita</span>
+      <span class="nav-link" onclick="goToSlide(2)">Anggota</span>
+      <span class="nav-link" onclick="goToSlide(3)">Galeri</span>
+      <span class="nav-link" onclick="goToSlide(4)">Perjalanan</span>
+      <span class="nav-link" onclick="goToSlide(5)">Pesan</span>
       <button class="nav-cta" id="navCelebrate">🎉 Celebrate!</button>
     </div>
     <button class="nav-burger" id="burgerBtn"><span></span><span></span></button>
@@ -81,11 +81,11 @@
 
 <!-- MOBILE MENU -->
 <div id="mobile-menu">
-  <span class="mm-link" onclick="scrollToSection('s1');closeMM()">Cerita</span>
-  <span class="mm-link" onclick="scrollToSection('s2');closeMM()">Anggota</span>
-  <span class="mm-link" onclick="scrollToSection('s3');closeMM()">Galeri</span>
-  <span class="mm-link" onclick="scrollToSection('s4');closeMM()">Perjalanan</span>
-  <span class="mm-link" onclick="scrollToSection('s5');closeMM()">Pesan</span>
+  <span class="mm-link" onclick="goToSlide(1);closeMM()">Cerita</span>
+  <span class="mm-link" onclick="goToSlide(2);closeMM()">Anggota</span>
+  <span class="mm-link" onclick="goToSlide(3);closeMM()">Galeri</span>
+  <span class="mm-link" onclick="goToSlide(4);closeMM()">Perjalanan</span>
+  <span class="mm-link" onclick="goToSlide(5);closeMM()">Pesan</span>
 </div>
 
 <!-- PAGE -->
@@ -105,7 +105,7 @@
       </h1>
       <p class="reveal hero-quote">"Rumah bukan tentang tempat, tapi tentang perasaan bersama orang yang kita cintai." 💕</p>
       <div class="reveal hero-btns">
-        <button class="btn-primary" onclick="scrollToSection('s3')"><i class="fas fa-camera"></i> Lihat Galeri</button>
+        <button class="btn-primary" onclick="goToSlide(3)"><i class="fas fa-camera"></i> Lihat Galeri</button>
         <button class="btn-ghost" onclick="celebrate()">🎊 Celebrate!</button>
       </div>
       <div class="reveal hero-stats">
@@ -305,7 +305,7 @@
     <h2 class="reveal penutup-h2"><span class="fun-text">ALZY FAMILY</span></h2>
     <p class="reveal penutup-quote">"Keluarga adalah tempat di mana hidup dimulai dan cinta tidak pernah berakhir." 💕</p>
     <div class="reveal penutup-btns">
-      <button class="btn-primary" onclick="scrollToSection('s0')"><i class="fas fa-home"></i> Kembali ke Awal</button>
+      <button class="btn-primary" onclick="goToSlide(0)"><i class="fas fa-home"></i> Kembali ke Awal</button>
       <button class="btn-ghost" onclick="celebrate()">🎉 Celebrate!</button>
     </div>
     <div class="reveal penutup-socials">
