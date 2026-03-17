@@ -64,46 +64,127 @@ function startLoader(onDone) {
   }, 120);
 }
 
-/* ── SCROLL REVEAL ── */
-function initReveal() {
-  var all = document.querySelectorAll('.reveal, .reveal-word');
+/* ── SLIDE CONTROLLER (POWERPOINT STYLE) ── */
+let currentSlide = 0;
+const slides = document.querySelectorAll('.sec');
+let isAnimating = false;
 
-  // stagger delays for headings
-  document.querySelectorAll('.hero-h1, .section-h2, .penutup-h2').forEach(function(h) {
-    h.querySelectorAll('.reveal-word').forEach(function(w, i) {
-      w.style.transitionDelay = (i * 90) + 'ms';
-    });
-  });
-
-  // stagger for member cards
-  document.querySelectorAll('.member-card.reveal').forEach(function(el) {
-    el.style.transitionDelay = (el.getAttribute('data-delay') || 0) + 'ms';
-  });
-
-  if (!('IntersectionObserver' in window)) {
-    // Fallback: show everything
-    all.forEach(function(el) { el.classList.add('in'); });
-    return;
+function initSlides() {
+  // Set slide pertama menjadi aktif saat awal
+  if(slides.length > 0) {
+    gsap.set(slides[0], { visibility: 'visible', opacity: 1, zIndex: 2 });
+    slides[0].classList.add('active');
+    animateSlideContent(slides[0]);
   }
 
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      var el = entry.target;
-      if (entry.isIntersecting) {
-        el.classList.remove('out');
-        el.classList.add('in');
-      } else {
-        var rect = entry.boundingClientRect;
-        el.classList.remove('in');
-        if (rect.top < 0) el.classList.add('out');
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  // Deteksi Scroll Mouse (Mouse Wheel)
+  window.addEventListener('wheel', function(e) {
+    if (isAnimating) return;
+    if (e.deltaY > 50) goToSlide(currentSlide + 1);
+    else if (e.deltaY < -50) goToSlide(currentSlide - 1);
+  }, { passive: false });
 
-  all.forEach(function(el) { obs.observe(el); });
+  // Deteksi Keyboard (Panah Atas/Bawah)
+  window.addEventListener('keydown', function(e) {
+    if (isAnimating) return;
+    if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') goToSlide(currentSlide + 1);
+    if (e.key === 'ArrowUp' || e.key === 'PageUp') goToSlide(currentSlide - 1);
+  });
+
+  // Deteksi Swipe Layar HP (Touch)
+  let touchStartY = 0;
+  window.addEventListener('touchstart', e => touchStartY = e.touches[0].clientY, { passive: true });
+  window.addEventListener('touchend', e => {
+    if (isAnimating) return;
+    let touchEndY = e.changedTouches[0].clientY;
+    let diff = touchStartY - touchEndY;
+    if (diff > 50) goToSlide(currentSlide + 1); // Swipe Up -> Next
+    else if (diff < -50) goToSlide(currentSlide - 1); // Swipe Down -> Prev
+  }, { passive: true });
 }
 
-/* ── NAV ── */
+window.goToSlide = function(index) {
+  if (isAnimating || index < 0 || index >= slides.length || index === currentSlide) return;
+  isAnimating = true;
+
+  const nextSlide = slides[index];
+  const prevSlide = slides[currentSlide];
+  const direction = index > currentSlide ? 1 : -1;
+
+  // Persiapan elemen sebelum animasi
+  gsap.set(nextSlide, { visibility: 'visible', zIndex: 3 });
+  gsap.set(prevSlide, { zIndex: 2 });
+
+  // Reset elemen dalam slide berikutnya agar bisa dianimasikan ulang
+  const nextReveals = nextSlide.querySelectorAll('.reveal, .reveal-word, .member-card, .val-card');
+  gsap.set(nextReveals, { opacity: 0, y: 50, scale: 0.95 });
+
+  // Animasi Transisi Slide (GSAP)
+  const tl = gsap.timeline({
+    onComplete: () => {
+      gsap.set(prevSlide, { visibility: 'hidden', zIndex: 1 });
+      prevSlide.classList.remove('active');
+      nextSlide.classList.add('active');
+      currentSlide = index;
+      isAnimating = false;
+    }
+  });
+
+  // Animasi Slide-out & Slide-in layaknya presentasi
+  tl.fromTo(nextSlide,
+    { y: direction * window.innerHeight, opacity: 0.3 },
+    { y: 0, opacity: 1, duration: 1.2, ease: "power4.inOut" },
+    0
+  )
+  .to(prevSlide,
+    { y: -direction * (window.innerHeight * 0.5), opacity: 0, scale: 0.9, duration: 1.2, ease: "power4.inOut" },
+    0
+  );
+
+  // Trigger animasi elemen di dalam slide tersebut
+  animateSlideContent(nextSlide, 0.6);
+};
+
+function animateSlideContent(slide, delayAmount = 0) {
+  const reveals = slide.querySelectorAll('.reveal, .reveal-word');
+  const cards = slide.querySelectorAll('.member-card, .val-card');
+
+  if(reveals.length) {
+    gsap.to(reveals, {
+      y: 0, opacity: 1, scale: 1,
+      duration: 0.8,
+      stagger: 0.05,
+      ease: "back.out(1.5)",
+      delay: delayAmount
+    });
+  }
+
+  if(cards.length) {
+    gsap.to(cards, {
+      y: 0, opacity: 1, scale: 1,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: "power3.out",
+      delay: delayAmount + 0.3
+    });
+  }
+}
+
+/* ════ BOOT ════ */
+ready(function() {
+  initThree();
+
+  startLoader(function() {
+    // Show nav
+    var navEls = document.querySelectorAll('.nav-logo, #navLinks, .nav-burger');
+    navEls.forEach(function(el) { el.style.opacity = '1'; });
+
+    // Inisialisasi slide layaknya presentasi
+    initSlides();
+    initNav();
+    initCursor();
+  });
+});
 function initNav() {
   var nav = document.getElementById('nav');
   if (!nav) return;
@@ -235,14 +316,6 @@ window.closeMM = function() {
   if (burger) burger.classList.remove('open');
 };
 
-/* ── SCROLL TO SECTION ── */
-window.scrollToSection = function(id) {
-  var el = document.getElementById(id);
-  if (!el) return;
-  var top = el.getBoundingClientRect().top + window.scrollY - 72;
-  window.scrollTo({ top: top, behavior: 'smooth' });
-};
-
 /* ── TIMELINE ── */
 ready(function() {
   var tlPos = 0, tlDrag = false, tlSX = 0, tlSP = 0;
@@ -360,24 +433,3 @@ ready(function() {
   if (navCelebrate) navCelebrate.addEventListener('click', window.celebrate);
 });
 
-/* ════ BOOT ════ */
-ready(function() {
-  initThree();
-
-  startLoader(function() {
-    // Show nav
-    var navEls = document.querySelectorAll('.nav-logo, #navLinks, .nav-burger');
-    navEls.forEach(function(el) { el.style.opacity = '1'; });
-
-    // Reveal hero section immediately
-    var heroReveal = document.querySelectorAll('#s0 .reveal, #s0 .reveal-word');
-    heroReveal.forEach(function(el, i) {
-      setTimeout(function() { el.classList.add('in'); }, i * 60);
-    });
-
-    // Init scroll reveal for rest of page
-    initReveal();
-    initNav();
-    initCursor();
-  });
-});
