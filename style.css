@@ -214,7 +214,7 @@ body { overflow: hidden; }
 .sec-inner.two-col { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
 .sec-inner.vertical { display:flex; flex-direction:column; gap:40px; }
 .sec-inner.penutup-inner { align-items:center; text-align:center; }
-.wave-divider { position:absolute; bottom:-2px; left:0; right:0; height:100px; z-index:3; pointer-events:none; }
+.wave-divider { display:none; }
 .wave-divider svg { width:100%; height:100%; }
 
 /* ══ REVEAL ══ */
