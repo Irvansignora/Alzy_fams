@@ -15,13 +15,7 @@
 
 <!-- ANIMATED BG -->
 <div id="bg-layer">
-  <div class="mesh-blob b1"></div>
-  <div class="mesh-blob b2"></div>
-  <div class="mesh-blob b3"></div>
-  <div class="mesh-blob b4"></div>
-  <div class="mesh-blob b5"></div>
-
-  <!-- Floating SVG doodles -->
+  <div class="mesh-blob b1"></div><div class="mesh-blob b2"></div><div class="mesh-blob b3"></div><div class="mesh-blob b4"></div><div class="mesh-blob b5"></div>
   <svg class="doodle d1" viewBox="0 0 80 80"><circle cx="40" cy="40" r="38" fill="none" stroke="#FF6B8A" stroke-width="3" stroke-dasharray="8 6"/></svg>
   <svg class="doodle d2" viewBox="0 0 80 80"><polygon points="40,4 75,68 5,68" fill="none" stroke="#FFB347" stroke-width="3" stroke-linejoin="round"/></svg>
   <svg class="doodle d3" viewBox="0 0 80 80"><rect x="8" y="8" width="64" height="64" rx="18" fill="none" stroke="#26C6DA" stroke-width="3" stroke-dasharray="10 5"/></svg>
@@ -32,7 +26,6 @@
   <svg class="doodle d8" viewBox="0 0 80 80"><polygon points="40,4 75,68 5,68" fill="rgba(206,147,216,.2)"/></svg>
   <svg class="doodle d9" viewBox="0 0 70 70"><rect x="5" y="5" width="60" height="60" rx="16" fill="rgba(92,158,255,.15)"/></svg>
   <svg class="doodle d10" viewBox="0 0 50 50"><path d="M25 5 L45 20 L38 42 L12 42 L5 20 Z" fill="rgba(255,179,71,.18)"/></svg>
-  <!-- Stars -->
   <svg class="doodle star s1" viewBox="0 0 40 40"><text x="50%" y="70%" text-anchor="middle" font-size="28">✦</text></svg>
   <svg class="doodle star s2" viewBox="0 0 40 40"><text x="50%" y="70%" text-anchor="middle" font-size="22">★</text></svg>
   <svg class="doodle star s3" viewBox="0 0 40 40"><text x="50%" y="70%" text-anchor="middle" font-size="24">✿</text></svg>
@@ -40,7 +33,8 @@
   <svg class="doodle star s5" viewBox="0 0 40 40"><text x="50%" y="70%" text-anchor="middle" font-size="22">✦</text></svg>
 </div>
 
-<!-- CURSOR -->
+<!-- CUSTOM CURSOR PARTICLE CANVAS -->
+<canvas id="cursor-canvas"></canvas>
 <div id="cur-dot"></div>
 <div id="cur-ring"></div>
 
@@ -49,12 +43,9 @@
   <div class="loader-content">
     <div class="loader-logo-wrap">
       <img id="loader-logo" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773105158/alzy-fams_qu7ewy.png" alt="">
-      <div class="loader-ring lr1"></div>
-      <div class="loader-ring lr2"></div>
+      <div class="loader-ring lr1"></div><div class="loader-ring lr2"></div>
     </div>
-    <div class="loader-title">
-      <span class="lc">A</span><span class="lc">L</span><span class="lc">Z</span><span class="lc">Y</span><span style="display:inline-block;width:.4em"></span><span class="lc">F</span><span class="lc">A</span><span class="lc">M</span><span class="lc">I</span><span class="lc">L</span><span class="lc">Y</span>
-    </div>
+    <div class="loader-title"><span class="lc">A</span><span class="lc">L</span><span class="lc">Z</span><span class="lc">Y</span><span style="display:inline-block;width:.4em"></span><span class="lc">F</span><span class="lc">A</span><span class="lc">M</span><span class="lc">I</span><span class="lc">L</span><span class="lc">Y</span></div>
     <div class="loader-sub">Est. 6 September 2020 🌸</div>
     <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
     <div class="loader-pct" id="loaderPct">0%</div>
@@ -64,7 +55,7 @@
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
-    <div class="nav-logo" onclick="scrollToSection('s0')">
+    <div class="nav-logo" onclick="goToSlide(0)">
       <img class="nav-logo-img" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773105158/alzy-fams_qu7ewy.png" alt="">
       <span class="nav-logo-name">Alzy Family</span>
     </div>
@@ -74,6 +65,7 @@
       <span class="nav-link" onclick="goToSlide(3)">Galeri</span>
       <span class="nav-link" onclick="goToSlide(4)">Perjalanan</span>
       <span class="nav-link" onclick="goToSlide(5)">Pesan</span>
+      <span class="nav-link" onclick="goToSlide(6)">Kapsul ⏳</span>
       <button class="nav-cta" id="navCelebrate">🎉 Celebrate!</button>
     </div>
     <button class="nav-burger" id="burgerBtn"><span></span><span></span></button>
@@ -87,24 +79,37 @@
   <span class="mm-link" onclick="goToSlide(3);closeMM()">Galeri</span>
   <span class="mm-link" onclick="goToSlide(4);closeMM()">Perjalanan</span>
   <span class="mm-link" onclick="goToSlide(5);closeMM()">Pesan</span>
+  <span class="mm-link" onclick="goToSlide(6);closeMM()">Kapsul Waktu ⏳</span>
 </div>
 
-<!-- PAGE -->
 <div id="page-wrap">
 
-<!-- HERO -->
+<!-- ══════════ HERO ══════════ -->
 <section class="sec" id="s0">
   <div class="sec-inner hero-grid">
     <div class="hero-left">
-      <div class="reveal hero-badge-top">
-        <span class="badge-pill pink">🌸 Est. 6 September 2020</span>
-      </div>
+      <div class="reveal hero-badge-top"><span class="badge-pill pink">🌸 Est. 6 September 2020</span></div>
       <h1 class="hero-h1">
         <span class="word-line"><span class="reveal-word">Selamat</span></span>
         <span class="word-line"><span class="reveal-word">Datang di</span></span>
         <span class="word-line"><span class="reveal-word"><span class="fun-text">Alzy Family</span></span></span>
       </h1>
       <p class="reveal hero-quote">"Rumah bukan tentang tempat, tapi tentang perasaan bersama orang yang kita cintai." 💕</p>
+
+      <!-- ANNIVERSARY COUNTDOWN -->
+      <div class="reveal countdown-box">
+        <div class="cd-label">🎂 Anniversary ke-<span id="cd-year">?</span> dalam</div>
+        <div class="cd-digits">
+          <div class="cd-unit"><span class="cd-num" id="cd-d">--</span><span class="cd-u">Hari</span></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><span class="cd-num" id="cd-h">--</span><span class="cd-u">Jam</span></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><span class="cd-num" id="cd-m">--</span><span class="cd-u">Menit</span></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><span class="cd-num" id="cd-s">--</span><span class="cd-u">Detik</span></div>
+        </div>
+      </div>
+
       <div class="reveal hero-btns">
         <button class="btn-primary" onclick="goToSlide(3)"><i class="fas fa-camera"></i> Lihat Galeri</button>
         <button class="btn-ghost" onclick="celebrate()">🎊 Celebrate!</button>
@@ -118,9 +123,7 @@
     <div class="reveal hero-right">
       <div class="hero-img-wrap">
         <div class="hero-glow"></div>
-        <div class="hero-sticker st1">💕</div>
-        <div class="hero-sticker st2">⭐</div>
-        <div class="hero-sticker st3">🌸</div>
+        <div class="hero-sticker st1">💕</div><div class="hero-sticker st2">⭐</div><div class="hero-sticker st3">🌸</div>
         <img class="hero-img" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104819/family_kqeuhj.jpg" alt="Alzy Family">
         <div class="hero-card-badge">
           <img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773105158/alzy-fams_qu7ewy.png" alt="">
@@ -133,36 +136,106 @@
   <div class="wave-divider"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,50 C200,100 400,0 600,60 C800,100 1000,20 1200,70 C1300,90 1380,40 1440,60 L1440,100 L0,100 Z" fill="var(--sec2-bg)"/></svg></div>
 </section>
 
-<!-- CERITA -->
+<!-- ══════════ CERITA — SCROLL STORYTELLING ══════════ -->
 <section class="sec" id="s1" style="background:var(--sec2-bg)">
-  <div class="sec-inner two-col">
-    <div class="reveal cerita-imgs">
-      <div class="ci-frame">
-        <img class="ci-a" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg" alt="">
-        <img class="ci-b" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg" alt="">
-        <div class="ci-pill">Since 2020 🌸</div>
-        <div class="ci-sticker">💑</div>
+  <div class="story-chapter-bar" id="chapterBar">
+    <div class="sc-dot active" data-ch="0" onclick="showChapter(0)"></div>
+    <div class="sc-dot" data-ch="1" onclick="showChapter(1)"></div>
+    <div class="sc-dot" data-ch="2" onclick="showChapter(2)"></div>
+    <div class="sc-dot" data-ch="3" onclick="showChapter(3)"></div>
+  </div>
+
+  <div class="story-scroll-wrap" id="storyWrap">
+    <!-- Chapter 0 -->
+    <div class="story-chapter active" id="ch0">
+      <div class="story-bg-text">TA'ARUF</div>
+      <div class="story-chapter-inner">
+        <div class="story-media">
+          <div class="ci-frame">
+            <img class="ci-a" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg" alt="">
+            <img class="ci-b" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg" alt="">
+            <div class="ci-pill">Since 2020 🌸</div>
+            <div class="ci-sticker">💑</div>
+          </div>
+        </div>
+        <div class="story-text">
+          <div class="story-ep">Episode 01</div>
+          <h2 class="story-h2">Dimulai dari sebuah <span class="fun-text-teal">ikatan suci</span></h2>
+          <p class="story-p">Pada 6 September 2020, Muhamad Irpan Yasin & Anisa Fitriani memulai babak baru kehidupan. Proses ta'aruf yang suci menjadi awal dari segalanya.</p>
+          <button class="story-next-btn" onclick="showChapter(1)">Episode Selanjutnya →</button>
+        </div>
       </div>
     </div>
-    <div class="cerita-text">
-      <div class="reveal"><span class="badge-pill teal">💬 Cerita Kami</span></div>
-      <h2 class="reveal section-h2" style="margin-top:16px">
-        <span class="word-line"><span class="reveal-word">Dimulai dari</span></span>
-        <span class="word-line"><span class="reveal-word">sebuah <span class="fun-text-teal">ikatan suci</span></span></span>
-      </h2>
-      <p class="reveal section-p">Pada 6 September 2020, Muhamad Irpan Yasin & Anisa Fitriani memulai babak baru kehidupan. Kini kami berempat — dengan Aleena dan Zyan yang mengisi setiap hari dengan tawa dan cinta.</p>
-      <div class="reveal values-grid">
-        <div class="val-card" style="--va:#FF6B8A"><div class="vi">❤️</div><div class="vt">Cinta</div><div class="vs">Prioritas utama</div></div>
-        <div class="val-card" style="--va:#FFB347"><div class="vi">😄</div><div class="vt">Tawa</div><div class="vs">Setiap hari</div></div>
-        <div class="val-card" style="--va:#26C6DA"><div class="vi">🛡️</div><div class="vt">Perlindungan</div><div class="vs">Saling menjaga</div></div>
-        <div class="val-card" style="--va:#66BB6A"><div class="vi">⭐</div><div class="vt">Mimpi</div><div class="vs">Wujudkan bersama</div></div>
+    <!-- Chapter 1 -->
+    <div class="story-chapter" id="ch1">
+      <div class="story-bg-text">NIKAH</div>
+      <div class="story-chapter-inner reverse">
+        <div class="story-media">
+          <div class="story-polaroid-wrap">
+            <div class="story-polaroid" style="--rot:-3deg">
+              <img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg" alt="">
+              <div class="sp-caption">6 Sep 2020 💍</div>
+            </div>
+          </div>
+        </div>
+        <div class="story-text">
+          <div class="story-ep">Episode 02</div>
+          <h2 class="story-h2">Akad yang <span class="fun-text">mengubah segalanya</span></h2>
+          <p class="story-p">Sebuah janji sakral di hadapan Allah. Irpan dan Anisa resmi menjadi suami istri, memulai rumah tangga yang penuh berkah dan cinta.</p>
+          <button class="story-next-btn" onclick="showChapter(2)">Episode Selanjutnya →</button>
+        </div>
+      </div>
+    </div>
+    <!-- Chapter 2 -->
+    <div class="story-chapter" id="ch2">
+      <div class="story-bg-text">ALEENA</div>
+      <div class="story-chapter-inner">
+        <div class="story-media">
+          <div class="story-polaroid-wrap">
+            <div class="story-polaroid" style="--rot:2deg">
+              <img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104799/aleena_odggqv.jpg" alt="">
+              <div class="sp-caption">2021 👶</div>
+            </div>
+          </div>
+        </div>
+        <div class="story-text">
+          <div class="story-ep">Episode 03</div>
+          <h2 class="story-h2">Cahaya pertama bernama <span class="fun-text-blue">Aleena</span></h2>
+          <p class="story-p">2021 — Aleena Naira Hana hadir membawa kebahagiaan tak terhingga. Putri kecil yang ceria dan cerdas, sang bintang pertama keluarga.</p>
+          <button class="story-next-btn" onclick="showChapter(3)">Episode Selanjutnya →</button>
+        </div>
+      </div>
+    </div>
+    <!-- Chapter 3 -->
+    <div class="story-chapter" id="ch3">
+      <div class="story-bg-text">ZYAN</div>
+      <div class="story-chapter-inner reverse">
+        <div class="story-media">
+          <div class="story-polaroid-wrap">
+            <div class="story-polaroid" style="--rot:-2deg">
+              <img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104828/zyan_u2ntjl.jpg" alt="">
+              <div class="sp-caption">2023 🍼</div>
+            </div>
+          </div>
+        </div>
+        <div class="story-text">
+          <div class="story-ep">Episode 04 — Selesai</div>
+          <h2 class="story-h2">Sang jagoan kecil <span class="fun-text-amber">Zyan</span></h2>
+          <p class="story-p">2023 — Muhammad Zyan Alfatih datang melengkapi kebahagiaan. Kini keluarga Alzy sempurna — empat jiwa, satu cinta yang tak terbatas.</p>
+          <div class="values-grid" style="margin-top:20px">
+            <div class="val-card" style="--va:#FF6B8A"><div class="vi">❤️</div><div class="vt">Cinta</div><div class="vs">Prioritas utama</div></div>
+            <div class="val-card" style="--va:#FFB347"><div class="vi">😄</div><div class="vt">Tawa</div><div class="vs">Setiap hari</div></div>
+            <div class="val-card" style="--va:#26C6DA"><div class="vi">🛡️</div><div class="vt">Perlindungan</div><div class="vs">Saling menjaga</div></div>
+            <div class="val-card" style="--va:#66BB6A"><div class="vi">⭐</div><div class="vt">Mimpi</div><div class="vs">Wujudkan bersama</div></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="wave-divider"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,30 C300,100 600,0 900,70 C1100,110 1300,30 1440,50 L1440,100 L0,100 Z" fill="var(--sec1-bg)"/></svg></div>
 </section>
 
-<!-- ANGGOTA -->
+<!-- ══════════ ANGGOTA — MOOD BOARD ══════════ -->
 <section class="sec" id="s2" style="background:var(--sec1-bg)">
   <div class="sec-inner vertical">
     <div class="reveal slide-header">
@@ -170,29 +243,45 @@
       <h2 class="section-h2" style="margin-top:16px">
         <span class="word-line"><span class="reveal-word">Para <span class="fun-text-amber">Pahlawan Super</span> Kami</span></span>
       </h2>
+      <p class="mood-hint reveal">✨ Klik kartu untuk rasakan mood masing-masing!</p>
     </div>
     <div class="members-grid">
-      <div class="member-card reveal" data-delay="0" style="--mc:#26C6DA">
+      <div class="member-card reveal mood-card" data-delay="0" style="--mc:#26C6DA"
+           data-mood-bg="linear-gradient(135deg,#e0f7fa,#b2ebf2,#e8f5e9)"
+           data-mood-b1="#26C6DA" data-mood-b2="#4DD0E1" data-mood-b3="#80DEEA"
+           data-mood-name="Ayah · The Protector" data-mood-emoji="🌊💪⚡"
+           onclick="activateMood(this)">
+        <div class="mood-aura"></div>
         <div class="mc-img"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104794/irvan2_nx48yc.jpg" alt="Ayah"><div class="mc-ov"></div></div>
         <div class="mc-body">
           <div class="mc-role" style="color:#26C6DA">Ayah · The Protector</div>
           <div class="mc-name">Muhamad Irpan Yasin</div>
           <div class="mc-quote">"Kepala keluarga yang kuat dan penuh kasih sayang."</div>
           <div class="mc-tags"><span class="mtag" style="background:rgba(38,198,218,.15);color:#26C6DA">#Pemimpin</span><span class="mtag" style="background:rgba(38,198,218,.15);color:#26C6DA">#Provider</span></div>
-          <a href="https://irvan.iranza.com" target="_blank" class="mc-porto-btn" style="--mcp:#26C6DA">🌐 Lihat Porto</a>
+          <a href="https://irvan.iranza.com" target="_blank" class="mc-porto-btn" style="--mcp:#26C6DA" onclick="event.stopPropagation()">🌐 Lihat Porto</a>
         </div>
       </div>
-      <div class="member-card reveal" data-delay="100" style="--mc:#FF6B8A">
+      <div class="member-card reveal mood-card" data-delay="100" style="--mc:#FF6B8A"
+           data-mood-bg="linear-gradient(135deg,#fce4ec,#f8bbd0,#fff9c4)"
+           data-mood-b1="#FF6B8A" data-mood-b2="#F48FB1" data-mood-b3="#FFD54F"
+           data-mood-name="Ibu · The Heart" data-mood-emoji="🌸💖✨"
+           onclick="activateMood(this)">
+        <div class="mood-aura"></div>
         <div class="mc-img"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104790/ibu_qhaosr.jpg" alt="Ibu"><div class="mc-ov"></div></div>
         <div class="mc-body">
           <div class="mc-role" style="color:#FF6B8A">Ibu · The Heart</div>
           <div class="mc-name">Anisa Fitriani</div>
           <div class="mc-quote">"Jantung rumah yang selalu memberikan kehangatan."</div>
           <div class="mc-tags"><span class="mtag" style="background:rgba(255,107,138,.12);color:#FF6B8A">#Queen</span><span class="mtag" style="background:rgba(255,107,138,.12);color:#FF6B8A">#Manager</span></div>
-          <a href="https://anisa.iranza.com" target="_blank" class="mc-porto-btn" style="--mcp:#FF6B8A">🌐 Lihat Porto</a>
+          <a href="https://anisa.iranza.com" target="_blank" class="mc-porto-btn" style="--mcp:#FF6B8A" onclick="event.stopPropagation()">🌐 Lihat Porto</a>
         </div>
       </div>
-      <div class="member-card reveal" data-delay="200" style="--mc:#5C9EFF">
+      <div class="member-card reveal mood-card" data-delay="200" style="--mc:#5C9EFF"
+           data-mood-bg="linear-gradient(135deg,#e8eaf6,#c5cae9,#e3f2fd)"
+           data-mood-b1="#5C9EFF" data-mood-b2="#7986CB" data-mood-b3="#90CAF9"
+           data-mood-name="Aleena · The Princess" data-mood-emoji="⭐🎨🌈"
+           onclick="activateMood(this)">
+        <div class="mood-aura"></div>
         <div class="mc-img"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104799/aleena_odggqv.jpg" alt="Aleena"><div class="mc-ov"></div></div>
         <div class="mc-body">
           <div class="mc-role" style="color:#5C9EFF">Kakak · The Princess</div>
@@ -201,7 +290,12 @@
           <div class="mc-tags"><span class="mtag" style="background:rgba(92,158,255,.12);color:#5C9EFF">#Smart</span><span class="mtag" style="background:rgba(92,158,255,.12);color:#5C9EFF">#Creative</span></div>
         </div>
       </div>
-      <div class="member-card reveal" data-delay="300" style="--mc:#FFB347">
+      <div class="member-card reveal mood-card" data-delay="300" style="--mc:#FFB347"
+           data-mood-bg="linear-gradient(135deg,#fff8e1,#ffecb3,#f9fbe7)"
+           data-mood-b1="#FFB347" data-mood-b2="#FFD54F" data-mood-b3="#AED581"
+           data-mood-name="Zyan · The Prince" data-mood-emoji="🦁🎮⚽"
+           onclick="activateMood(this)">
+        <div class="mood-aura"></div>
         <div class="mc-img"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104828/zyan_u2ntjl.jpg" alt="Zyan"><div class="mc-ov"></div></div>
         <div class="mc-body">
           <div class="mc-role" style="color:#FFB347">Adik · The Prince</div>
@@ -211,11 +305,16 @@
         </div>
       </div>
     </div>
+    <div id="mood-banner" class="mood-banner hidden">
+      <div class="mood-banner-emoji" id="moodEmoji">✨</div>
+      <div class="mood-banner-text">Vibes: <strong id="moodName">-</strong></div>
+      <button class="mood-reset-btn" onclick="resetMood()">Reset ↩</button>
+    </div>
   </div>
   <div class="wave-divider"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,60 C360,10 720,100 1080,40 C1260,10 1380,80 1440,50 L1440,100 L0,100 Z" fill="var(--sec2-bg)"/></svg></div>
 </section>
 
-<!-- GALERI -->
+<!-- ══════════ GALERI — FILM STRIP + POLAROID ══════════ -->
 <section class="sec" id="s3" style="background:var(--sec2-bg)">
   <div class="sec-inner vertical">
     <div class="reveal slide-header">
@@ -224,27 +323,56 @@
         <span class="word-line"><span class="reveal-word">Kenangan <span class="fun-text-blue">Berharga</span> Kami</span></span>
       </h2>
     </div>
-    <div class="galeri-grid reveal">
-      <div class="gp gc1" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg" alt=""><div class="gp-ov"><i class="fas fa-expand-alt"></i></div></div>
-      <div class="gp gc2" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg" alt=""><div class="gp-ov"><i class="fas fa-expand-alt"></i></div></div>
-      <div class="gp gc3" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104801/foto5_ocnqub.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104801/foto5_ocnqub.jpg" alt=""><div class="gp-ov"><i class="fas fa-expand-alt"></i></div></div>
-      <div class="gp gc4" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104811/foto6_grc5xl.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104811/foto6_grc5xl.jpg" alt=""><div class="gp-ov"><i class="fas fa-expand-alt"></i></div></div>
-      <div class="gp gc5" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104776/foto7_torqpu.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104776/foto7_torqpu.jpg" alt=""><div class="gp-ov"><i class="fas fa-expand-alt"></i></div></div>
-      <div class="gp gc6" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104772/foto8_i0d6no.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104772/foto8_i0d6no.jpg" alt=""><div class="gp-ov"><i class="fas fa-expand-alt"></i></div></div>
-      <div class="gp gc7" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104819/family_kqeuhj.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104819/family_kqeuhj.jpg" alt=""><div class="gp-ov"><i class="fas fa-expand-alt"></i></div></div>
+
+    <!-- FILM STRIP -->
+    <div class="film-strip-outer reveal">
+      <div class="film-holes top"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="film-track" id="filmTrack">
+        <div class="film-frame" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg" alt=""><div class="film-lbl">Ayah</div></div>
+        <div class="film-frame" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg" alt=""><div class="film-lbl">Bersama</div></div>
+        <div class="film-frame" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104801/foto5_ocnqub.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104801/foto5_ocnqub.jpg" alt=""><div class="film-lbl">Momen</div></div>
+        <div class="film-frame" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104811/foto6_grc5xl.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104811/foto6_grc5xl.jpg" alt=""><div class="film-lbl">Bahagia</div></div>
+        <div class="film-frame" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104776/foto7_torqpu.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104776/foto7_torqpu.jpg" alt=""><div class="film-lbl">Keluarga</div></div>
+        <div class="film-frame" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104772/foto8_i0d6no.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104772/foto8_i0d6no.jpg" alt=""><div class="film-lbl">Kenangan</div></div>
+        <div class="film-frame" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104819/family_kqeuhj.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104819/family_kqeuhj.jpg" alt=""><div class="film-lbl">Alzy Fams</div></div>
+        <!-- duplicate for loop feel -->
+        <div class="film-frame" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104826/irvan_tzw9i5.jpg" alt=""><div class="film-lbl">Ayah</div></div>
+        <div class="film-frame" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg')"><img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104792/foto4_hjhfob.jpg" alt=""><div class="film-lbl">Bersama</div></div>
+      </div>
+      <div class="film-holes bottom"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+
+    <!-- POLAROID BOARD -->
+    <div class="polaroid-board reveal">
+      <div class="pb-label">📌 Papan Kenangan</div>
+      <div class="pb-grid">
+        <div class="polaroid" style="--rot:-4deg" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104819/family_kqeuhj.jpg')">
+          <img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104819/family_kqeuhj.jpg" alt=""><div class="pol-cap">Alzy Family 🏡</div>
+        </div>
+        <div class="polaroid" style="--rot:3deg" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104799/aleena_odggqv.jpg')">
+          <img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104799/aleena_odggqv.jpg" alt=""><div class="pol-cap">Aleena 🌸</div>
+        </div>
+        <div class="polaroid" style="--rot:-2deg" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104828/zyan_u2ntjl.jpg')">
+          <img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104828/zyan_u2ntjl.jpg" alt=""><div class="pol-cap">Zyan 🦁</div>
+        </div>
+        <div class="polaroid" style="--rot:5deg" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104794/irvan2_nx48yc.jpg')">
+          <img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104794/irvan2_nx48yc.jpg" alt=""><div class="pol-cap">Ayah 💪</div>
+        </div>
+        <div class="polaroid" style="--rot:-3deg" onclick="openLb('https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104790/ibu_qhaosr.jpg')">
+          <img src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773104790/ibu_qhaosr.jpg" alt=""><div class="pol-cap">Ibu 💖</div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="wave-divider"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,40 C200,100 500,0 800,60 C1000,100 1200,10 1440,50 L1440,100 L0,100 Z" fill="var(--sec1-bg)"/></svg></div>
 </section>
 
-<!-- PERJALANAN -->
+<!-- ══════════ PERJALANAN ══════════ -->
 <section class="sec" id="s4" style="background:var(--sec1-bg)">
   <div class="sec-inner vertical">
     <div class="reveal slide-header">
       <span class="badge-pill amber">🗺️ Perjalanan Kami</span>
-      <h2 class="section-h2" style="margin-top:16px">
-        <span class="word-line"><span class="reveal-word">Dari Awal <span class="fun-text-amber">Hingga Sekarang</span></span></span>
-      </h2>
+      <h2 class="section-h2" style="margin-top:16px"><span class="word-line"><span class="reveal-word">Dari Awal <span class="fun-text-amber">Hingga Sekarang</span></span></span></h2>
     </div>
     <div class="tl-wrap reveal">
       <div class="tl-track" id="tlTrack">
@@ -263,7 +391,7 @@
   <div class="wave-divider"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,50 C400,100 800,0 1200,60 C1320,80 1400,30 1440,50 L1440,100 L0,100 Z" fill="var(--sec2-bg)"/></svg></div>
 </section>
 
-<!-- BUKU TAMU -->
+<!-- ══════════ BUKU TAMU ══════════ -->
 <section class="sec" id="s5" style="background:var(--sec2-bg)">
   <div class="sec-inner two-col">
     <div class="pesan-left">
@@ -276,23 +404,51 @@
       <div class="reveal pesan-form">
         <div class="form-row">
           <input id="gbName" class="form-input" type="text" placeholder="Nama Anda">
-          <select id="gbRel" class="form-input">
-            <option value="Saudara">Saudara</option>
-            <option value="Teman">Teman</option>
-            <option value="Kerabat">Kerabat</option>
-            <option value="Tetangga">Tetangga</option>
-          </select>
+          <select id="gbRel" class="form-input"><option value="Saudara">Saudara</option><option value="Teman">Teman</option><option value="Kerabat">Kerabat</option><option value="Tetangga">Tetangga</option></select>
         </div>
         <textarea id="gbMsg" class="form-input form-ta" rows="3" placeholder="Tulis pesan untuk Alzy Family..."></textarea>
         <button class="btn-send" onclick="addMsg()"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
       </div>
     </div>
+    <div class="pesan-right reveal"><div class="msg-list" id="msgList"></div></div>
   </div>
   <div class="wave-divider"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,30 C300,90 700,10 1000,70 C1200,110 1360,20 1440,55 L1440,100 L0,100 Z" fill="var(--sec-deep-bg)"/></svg></div>
 </section>
 
-<!-- PENUTUP -->
+<!-- ══════════ TIME CAPSULE ══════════ -->
 <section class="sec" id="s6" style="background:var(--sec-deep-bg)">
+  <div class="sec-inner vertical">
+    <div class="reveal slide-header">
+      <span class="badge-pill pink">⏳ Kapsul Waktu</span>
+      <h2 class="section-h2" style="margin-top:16px"><span class="word-line"><span class="reveal-word">Pesan untuk <span class="fun-text">Masa Depan</span></span></span></h2>
+      <p class="reveal section-p" style="max-width:540px;margin:0 auto 32px">Tulis pesan rahasia yang akan terbuka di tanggal tertentu. Simpan mimpi, harapan, dan cintamu untuk dibuka di masa depan. 💌</p>
+    </div>
+    <div class="capsule-container reveal">
+      <div class="capsule-write">
+        <div class="capsule-box">
+          <div class="capsule-icon">📦</div>
+          <h3 class="capsule-title">Titipkan Pesanmu</h3>
+          <input id="capFrom" class="form-input" type="text" placeholder="Dari siapa?" style="margin-bottom:10px">
+          <input id="capTo" class="form-input" type="text" placeholder="Untuk siapa?" style="margin-bottom:10px">
+          <textarea id="capMsg" class="form-input form-ta" rows="4" placeholder="Tulis pesan rahasia untuk dibuka nanti..."></textarea>
+          <div class="cap-date-row">
+            <label class="cap-date-label">📅 Buka tanggal:</label>
+            <input id="capDate" class="form-input" type="date" style="flex:1">
+          </div>
+          <button class="btn-send" style="margin-top:12px" onclick="sealCapsule()">🔒 Segel Kapsul</button>
+        </div>
+      </div>
+      <div class="capsule-vault">
+        <div class="vault-title">🗄️ Kapsul Tersimpan</div>
+        <div class="vault-list" id="vaultList"><div class="vault-empty">Belum ada kapsul. Tulis pesanmu! ✨</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="wave-divider"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,40 C360,100 720,0 1080,60 C1260,90 1380,20 1440,50 L1440,100 L0,100 Z" fill="var(--sec1-bg)"/></svg></div>
+</section>
+
+<!-- ══════════ PENUTUP ══════════ -->
+<section class="sec" id="s7" style="background:var(--sec1-bg)">
   <div class="sec-inner vertical penutup-inner">
     <img class="reveal penutup-logo" src="https://res.cloudinary.com/dyhvx9wit/image/upload/v1773105158/alzy-fams_qu7ewy.png" alt="">
     <h2 class="reveal penutup-h2"><span class="fun-text">ALZY FAMILY</span></h2>
@@ -320,6 +476,21 @@
 
 <!-- LIGHTBOX -->
 <div id="lb"><button id="lb-close" onclick="closeLb()">&times;</button><img id="lb-img" src="" alt=""></div>
+
+<!-- MOOD OVERLAY -->
+<div id="mood-overlay"></div>
+<div id="mood-float-emojis"></div>
+
+<!-- CAPSULE MODAL -->
+<div id="capsule-modal" class="capsule-modal hidden">
+  <div class="capsule-modal-inner">
+    <div class="cm-icon">📬</div>
+    <h3 class="cm-title" id="cmTitle">Kapsul Terbuka!</h3>
+    <div class="cm-from" id="cmFrom"></div>
+    <p class="cm-msg" id="cmMsg"></p>
+    <button class="btn-primary" onclick="closeCapsuleModal()">Tutup 💌</button>
+  </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
