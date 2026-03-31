@@ -390,3 +390,25 @@ body { overflow: hidden; }
   .sec { padding:70px 0 100px; }
   .hero-stats { flex-wrap:wrap; }
 }
+
+/* ══ PORTO BUTTON ══ */
+.mc-porto-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 18px;
+  border-radius: 50px;
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--mcp, #26C6DA);
+  background: color-mix(in srgb, var(--mcp, #26C6DA) 12%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--mcp, #26C6DA) 35%, transparent);
+  text-decoration: none;
+  transition: all .3s ease;
+  letter-spacing: .02em;
+}
+.mc-porto-btn:hover {
+  background: var(--mcp, #26C6DA);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--mcp, #26C6DA) 35%, transparent);
+}
